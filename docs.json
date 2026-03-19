@@ -1,87 +1,175 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "Genspark Knowledge Base",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#7C3AED",
+    "light": "#A78BFA",
+    "dark": "#5B21B6"
   },
   "favicon": "/favicon.svg",
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Home",
         "groups": [
           {
-            "group": "Getting started",
-            "pages": [
-              "index",
-              "quickstart",
-              "development"
-            ]
-          },
-          {
-            "group": "Customization",
-            "pages": [
-              "essentials/settings",
-              "essentials/navigation"
-            ]
-          },
-          {
-            "group": "Writing content",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
-            ]
+            "group": "",
+            "pages": ["index"]
           }
         ]
       },
       {
-        "tab": "API reference",
+        "tab": "Business",
         "groups": [
           {
-            "group": "API documentation",
-            "pages": [
-              "api-reference/introduction"
-            ]
+            "group": "Overview",
+            "pages": ["business/overview"]
           },
           {
-            "group": "Endpoint examples",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
-            ]
+            "group": "Family Gift Studio",
+            "pages": ["business/fgs/overview", "business/fgs/brand-guidelines", "business/fgs/customer-service-playbook", "business/fgs/mentalism-marketing", "business/fgs/collection-strategy"]
+          },
+          {
+            "group": "Second Spring",
+            "pages": ["business/second-spring/overview", "business/second-spring/seo-strategy", "business/second-spring/content-marketing", "business/second-spring/brain-fog-campaign", "business/second-spring/enterprise-offers", "business/second-spring/credentialing"]
+          },
+          {
+            "group": "Product Ideas",
+            "pages": ["business/product-ideas/overview"]
+          },
+          {
+            "group": "Mission Organization",
+            "pages": ["business/mission-org/overview"]
+          },
+          {
+            "group": "Insight Profit",
+            "pages": ["business/insight-profit/overview"]
+          },
+          {
+            "group": "FTK",
+            "pages": ["business/ftk/overview"]
+          }
+        ]
+      },
+      {
+        "tab": "Marketing",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": ["marketing/overview"]
+          },
+          {
+            "group": "Copywriting",
+            "pages": ["marketing/copywriting/overview", "marketing/copywriting/brandon-lucero-playbook", "marketing/copywriting/objection-resolver"]
+          },
+          {
+            "group": "LinkedIn",
+            "pages": ["marketing/linkedin/overview"]
+          },
+          {
+            "group": "Ad Ideas",
+            "pages": ["marketing/ad-ideas/overview"]
+          },
+          {
+            "group": "CMO",
+            "pages": ["marketing/cmo/overview"]
+          },
+          {
+            "group": "Emails",
+            "pages": ["marketing/emails-1/overview"]
+          },
+          {
+            "group": "YouTube Scripts",
+            "pages": ["marketing/youtube-scripts/overview"]
+          }
+        ]
+      },
+      {
+        "tab": "Tech Builds",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": ["tech/overview"]
+          },
+          {
+            "group": "AI Agent",
+            "pages": ["tech/ai-agent-1/overview", "tech/ai-agent-2/overview"]
+          },
+          {
+            "group": "Software Comparison",
+            "pages": ["tech/software-comparison/overview"]
+          },
+          {
+            "group": "Landing Page Builder",
+            "pages": ["tech/landing-page-builder/overview"]
+          },
+          {
+            "group": "Internal KB",
+            "pages": ["tech/internal-kb/overview"]
+          },
+          {
+            "group": "EasyVeo",
+            "pages": ["tech/easyveo/overview"]
+          },
+          {
+            "group": "Code & Apps",
+            "pages": ["tech/code-scripts/overview", "tech/app-build-active/overview", "tech/app-build-idea/overview", "tech/agentic-workflow/overview"]
+          }
+        ]
+      },
+      {
+        "tab": "Creative",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": ["creative/overview"]
+          },
+          {
+            "group": "Design Mastery",
+            "pages": ["creative/design-mastery/overview"]
+          },
+          {
+            "group": "Tone & Voice",
+            "pages": ["creative/tone/overview"]
+          },
+          {
+            "group": "eBook & Video",
+            "pages": ["creative/ebook/overview", "creative/video-storyboard/overview"]
+          }
+        ]
+      },
+      {
+        "tab": "Personal",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": ["personal/overview"]
+          },
+          {
+            "group": "Health & Wellness",
+            "pages": ["personal/glp-1/overview", "personal/fitness/overview", "personal/skin/overview", "personal/add/overview", "personal/brain/overview", "personal/health-career/overview"]
+          },
+          {
+            "group": "Lifestyle",
+            "pages": ["personal/travel/overview", "personal/cleaning/overview", "personal/pest/overview"]
+          }
+        ]
+      },
+      {
+        "tab": "Other",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": ["other/overview"]
+          },
+          {
+            "group": "Projects",
+            "pages": ["other/done/overview", "other/eol/overview", "other/jjm/overview", "other/lala/overview", "other/toigo/overview", "other/family-office/overview"]
           }
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
+    ]
   },
   "logo": {
     "light": "/logo/light.svg",
@@ -90,33 +178,14 @@
   "navbar": {
     "links": [
       {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "label": "Notion DB",
+        "href": "https://www.notion.so/rtmendes/3a86d329c0ca49a29137fd0c269fecb0"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
-    }
-  },
-  "contextual": {
-    "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
-  },
-  "footer": {
-    "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "label": "Genspark",
+      "href": "https://www.genspark.ai/hub"
     }
   }
 }

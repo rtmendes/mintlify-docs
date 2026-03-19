@@ -1,0 +1,83 @@
+---
+title: "AI Objection Resolver"
+description: "PRD for an AI-powered system that identifies and resolves customer objections using NEPQ and NLP"
+icon: "robot"
+---
+
+<Info>From the **AI Objection Resolver PRD** chat. A product requirements document for building an AI tool that automatically identifies, categorizes, and resolves sales objections using NEPQ and NLP techniques.</Info>
+
+## Product Overview
+
+The AI Objection Resolver is a conversational AI tool designed to:
+1. **Identify** objections in sales conversations, emails, and copy
+2. **Categorize** them by type (price, trust, timing, need, authority)
+3. **Resolve** them using NEPQ-based questioning and reframing techniques
+4. **Generate** content that preemptively addresses objections before they arise
+
+## Core Methodology
+
+### NEPQ (Neuro-Emotional Persuasion Questioning)
+A sales methodology developed by Jeremy Miner that uses psychologically-calibrated questions to:
+- Surface emotional pain without manipulation
+- Build problem awareness naturally
+- Position the sale as the prospect's idea
+
+### NLP (Neuro-Linguistic Programming) Principles
+Applied to objection handling:
+- **Reframing** — changing the context in which an objection is valid
+- **Anchoring** — associating positive feelings with the product/solution
+- **Pacing and leading** — meeting the prospect where they are, then guiding them forward
+
+## Objection Taxonomy
+
+| Category | Example Objection | Resolver Strategy |
+|---|---|---|
+| Price | "It's too expensive" | Value reframe, ROI calculation, payment plan offer |
+| Trust | "I've never heard of you" | Social proof injection, authority signals, risk reversal |
+| Timing | "Not the right time" | Cost of inaction, urgency creation, future pacing |
+| Need | "I don't think I need this" | Problem agitation, symptom mapping, consequence chain |
+| Authority | "I need to check with my partner/boss" | Pre-frame for decision, stakeholder co-sell script |
+
+## PRD: System Architecture
+
+### Input Layer
+- Raw objection text (free-form or structured)
+- Context: product type, stage in funnel, channel (email, sales call, ad)
+- Audience segment (optional)
+
+### Processing Layer
+- NLP classification: objection type detection
+- Severity scoring: how strong is the objection?
+- Intent inference: is this a real objection or a "no" in disguise?
+
+### Output Layer
+- **Immediate response** — ready-to-use NEPQ-style reply
+- **Content brief** — outline for a piece of content that addresses this objection
+- **Sequence** — 3-5 message follow-up flow
+- **A/B variants** — 2-3 alternate framings
+
+## Use Cases
+
+### For Email Marketers
+Paste a reply from an unsubscribed or non-converting prospect → get a re-engagement sequence
+
+### For Sales Teams
+Input a recorded objection from a call → get NEPQ response scripts + training notes
+
+### For Copywriters
+Input an offer → get the top 5 anticipated objections + preemptive copy elements to address each
+
+### For Ad Managers
+Input ad comments/negative feedback → get retargeting copy that resolves the most common objections
+
+## Build Roadmap
+
+- **Phase 1** — Manual template library (30 objections × 5 response variants)
+- **Phase 2** — GPT-4 integration with NEPQ prompting
+- **Phase 3** — Fine-tuned model on high-converting sales conversation transcripts
+- **Phase 4** — Real-time overlay for sales calls (browser extension)
+
+## Source Links
+
+- **Genspark Hub:** [Open Copywriting Hub](https://www.genspark.ai/hub)
+- **Notion:** [View in Notion](https://www.notion.so/rtmendes/3a86d329c0ca49a29137fd0c269fecb0)
