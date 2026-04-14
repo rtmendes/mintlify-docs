@@ -1,1325 +1,1098 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Genspark Knowledge Base</title>
 <style>
-  :root {
-    --primary: #7C3AED;
-    --primary-light: #A78BFA;
-    --primary-dark: #5B21B6;
-    --primary-subtle: #EDE9FE;
-    --bg: #FFFFFF;
-    --bg-secondary: #F8F7FF;
-    --bg-sidebar: #FAFAFA;
-    --border: #E5E7EB;
-    --text: #111827;
-    --text-muted: #6B7280;
-    --text-sidebar: #374151;
-    --code-bg: #F3F4F6;
-    --blockquote-bg: #F5F3FF;
-    --blockquote-border: #7C3AED;
-    --card-bg: #FFFFFF;
-    --card-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
-    --table-header-bg: #F5F3FF;
-    --table-stripe: #FAFAFA;
-    --sidebar-active-bg: #EDE9FE;
-    --sidebar-active-text: #5B21B6;
-    --tag-bg: #EDE9FE;
-    --tag-text: #5B21B6;
-    --info-bg: #EFF6FF;
-    --info-border: #3B82F6;
-    --info-text: #1D4ED8;
-    --pill-1: #D1FAE5; --pill-1t: #065F46;
-    --pill-2: #FCE7F3; --pill-2t: #9D174D;
-    --pill-3: #E0F2FE; --pill-3t: #0369A1;
-    --pill-4: #FEF3C7; --pill-4t: #92400E;
-    --pill-5: #F3E8FF; --pill-5t: #6B21A8;
-    --topbar-height: 56px;
-    --sidebar-width: 260px;
-  }
-  [data-theme="dark"] {
-    --primary: #A78BFA;
-    --primary-light: #C4B5FD;
-    --primary-dark: #7C3AED;
-    --primary-subtle: #1E1B4B;
-    --bg: #0F0F0F;
-    --bg-secondary: #1A1A2E;
-    --bg-sidebar: #111111;
-    --border: #2D2D3A;
-    --text: #F9FAFB;
-    --text-muted: #9CA3AF;
-    --text-sidebar: #D1D5DB;
-    --code-bg: #1E1E2E;
-    --blockquote-bg: #1A1040;
-    --blockquote-border: #A78BFA;
-    --card-bg: #1A1A2E;
-    --card-shadow: 0 1px 3px rgba(0,0,0,0.4);
-    --table-header-bg: #1E1B4B;
-    --table-stripe: #141420;
-    --sidebar-active-bg: #1E1B4B;
-    --sidebar-active-text: #C4B5FD;
-    --tag-bg: #1E1B4B;
-    --tag-text: #C4B5FD;
-    --info-bg: #1E293B;
-    --info-border: #60A5FA;
-    --info-text: #93C5FD;
-    --pill-1: #064E3B; --pill-1t: #6EE7B7;
-    --pill-2: #831843; --pill-2t: #FBCFE8;
-    --pill-3: #0C4A6E; --pill-3t: #7DD3FC;
-    --pill-4: #78350F; --pill-4t: #FDE68A;
-    --pill-5: #3B0764; --pill-5t: #E9D5FF;
-  }
+:root{--pr:#7C3AED;--prl:#A78BFA;--prd:#5B21B6;--prs:#EDE9FE;--bg:#fff;--bg2:#F8F7FF;--bgs:#FAFAFA;--bd:#E5E7EB;--tx:#111827;--txm:#6B7280;--txs:#374151;--cbg:#F3F4F6;--qbg:#F5F3FF;--qb:#7C3AED;--cb:#fff;--cs:0 1px 3px rgba(0,0,0,.08);--thbg:#F5F3FF;--trs:#FAFAFA;--sab:#EDE9FE;--sat:#5B21B6;--tg:#EDE9FE;--tgt:#5B21B6;--ib:#EFF6FF;--ibd:#3B82F6;--ibt:#1D4ED8;--p1:#D1FAE5;--p1t:#065F46;--p2:#FCE7F3;--p2t:#9D174D;--p3:#E0F2FE;--p3t:#0369A1;--p4:#FEF3C7;--p4t:#92400E;--p5:#F3E8FF;--p5t:#6B21A8;--th:56px;--sw:260px}
+[data-theme=dark]{--pr:#A78BFA;--prl:#C4B5FD;--prd:#7C3AED;--prs:#1E1B4B;--bg:#0F0F0F;--bg2:#1A1A2E;--bgs:#111;--bd:#2D2D3A;--tx:#F9FAFB;--txm:#9CA3AF;--txs:#D1D5DB;--cbg:#1E1E2E;--qbg:#1A1040;--qb:#A78BFA;--cb:#1A1A2E;--cs:0 1px 3px rgba(0,0,0,.4);--thbg:#1E1B4B;--trs:#141420;--sab:#1E1B4B;--sat:#C4B5FD;--tg:#1E1B4B;--tgt:#C4B5FD;--ib:#1E293B;--ibd:#60A5FA;--ibt:#93C5FD;--p1:#064E3B;--p1t:#6EE7B7;--p2:#831843;--p2t:#FBCFE8;--p3:#0C4A6E;--p3t:#7DD3FC;--p4:#78350F;--p4t:#FDE68A;--p5:#3B0764;--p5t:#E9D5FF}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Inter','Segoe UI',sans-serif;background:var(--bg);color:var(--tx);line-height:1.6;font-size:15px}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:100;height:var(--th);background:var(--bg);border-bottom:1px solid var(--bd);display:flex;align-items:center;padding:0 20px;gap:12px}
+.logo{display:flex;align-items:center;gap:8px;font-weight:700;font-size:15px;color:var(--pr);text-decoration:none;flex-shrink:0}
+.logo svg{width:26px;height:26px}
+.srch{flex:0 0 220px;display:flex;align-items:center;gap:6px;background:var(--bg2);border:1px solid var(--bd);border-radius:7px;padding:5px 10px;cursor:pointer}
+.srch span{font-size:12px;color:var(--txm)}
+.srch kbd{margin-left:auto;font-size:10px;color:var(--txm);background:var(--bd);padding:1px 4px;border-radius:3px}
+.tabs{display:flex;gap:2px;flex:1;overflow-x:auto}
+.tab{padding:5px 12px;border-radius:6px;font-size:13px;font-weight:500;color:var(--txm);cursor:pointer;border:none;background:none;white-space:nowrap;transition:.12s}
+.tab:hover{background:var(--prs);color:var(--pr)}
+.tab.on{background:var(--prs);color:var(--prd);font-weight:600}
+.acts{display:flex;gap:6px;align-items:center;flex-shrink:0}
+.bg{padding:5px 12px;border-radius:6px;font-size:12px;font-weight:500;cursor:pointer;border:1px solid var(--bd);background:var(--bg);color:var(--tx);transition:.12s;text-decoration:none}
+.bg:hover{border-color:var(--pr);color:var(--pr)}
+.bp{padding:5px 13px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;border:none;background:var(--pr);color:#fff;transition:.12s;text-decoration:none}
+.bp:hover{background:var(--prd)}
+.tt{width:32px;height:32px;border-radius:7px;border:1px solid var(--bd);background:var(--bg);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:15px}
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+.layout{display:flex;padding-top:var(--th);min-height:100vh}
+.sb{position:fixed;top:var(--th);bottom:0;left:0;width:var(--sw);background:var(--bgs);border-right:1px solid var(--bd);overflow-y:auto;padding:12px 0 40px;scrollbar-width:thin;scrollbar-color:var(--bd) transparent}
+.sbg{margin-bottom:2px}
+.sbgh{padding:7px 14px 3px;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--txm);cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between}
+.sbgh:hover{color:var(--tx)}
+.sbgc{font-size:9px;opacity:.6;transition:transform .2s}
+.sbg.cl .sbgc{transform:rotate(-90deg)}
+.sbg.cl .sbi-wrap{display:none}
+.sbi{display:flex;align-items:center;gap:7px;padding:5px 14px;margin:1px 6px;border-radius:5px;font-size:13px;color:var(--txs);cursor:pointer;text-decoration:none;transition:.1s}
+.sbi:hover{background:var(--prs);color:var(--pr)}
+.sbi.on{background:var(--sab);color:var(--sat);font-weight:600}
+.sbi-ico{font-size:13px;opacity:.7;flex-shrink:0}
 
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-    font-size: 15px;
-  }
+.main{margin-left:var(--sw);flex:1;display:flex;justify-content:center}
+.content{width:100%;max-width:800px;padding:44px 44px 80px}
 
-  /* ── TOPBAR ── */
-  .topbar {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    height: var(--topbar-height);
-    background: var(--bg);
-    border-bottom: 1px solid var(--border);
-    display: flex; align-items: center; padding: 0 24px;
-    gap: 16px;
-  }
-  .topbar-logo {
-    display: flex; align-items: center; gap: 10px;
-    font-weight: 700; font-size: 16px; color: var(--primary);
-    text-decoration: none; flex-shrink: 0;
-  }
-  .topbar-logo svg { width: 28px; height: 28px; }
-  .topbar-tabs { display: flex; gap: 4px; margin-left: 8px; flex: 1; }
-  .topbar-tab {
-    padding: 6px 14px; border-radius: 6px; font-size: 13px; font-weight: 500;
-    color: var(--text-muted); cursor: pointer; border: none; background: none;
-    transition: all 0.15s;
-  }
-  .topbar-tab:hover { background: var(--primary-subtle); color: var(--primary); }
-  .topbar-tab.active { background: var(--primary-subtle); color: var(--primary-dark); font-weight: 600; }
-  .topbar-actions { display: flex; gap: 8px; align-items: center; }
-  .btn-ghost {
-    padding: 6px 14px; border-radius: 7px; font-size: 13px; font-weight: 500;
-    cursor: pointer; border: 1px solid var(--border); background: var(--bg);
-    color: var(--text); transition: all 0.15s;
-  }
-  .btn-ghost:hover { border-color: var(--primary); color: var(--primary); }
-  .btn-primary {
-    padding: 6px 16px; border-radius: 7px; font-size: 13px; font-weight: 600;
-    cursor: pointer; border: none; background: var(--primary); color: #fff;
-    transition: all 0.15s;
-  }
-  .btn-primary:hover { background: var(--primary-dark); }
-  .theme-toggle {
-    width: 36px; height: 36px; border-radius: 8px; border: 1px solid var(--border);
-    background: var(--bg); cursor: pointer; display: flex; align-items: center;
-    justify-content: center; font-size: 16px; transition: all 0.15s;
-  }
-  .theme-toggle:hover { border-color: var(--primary); }
+/* Page header */
+.ph{margin-bottom:28px}
+.pbc{font-size:11px;color:var(--txm);margin-bottom:6px;display:flex;align-items:center;gap:5px}
+.pbc span{opacity:.4}
+.ptitle{font-size:30px;font-weight:800;letter-spacing:-.02em;line-height:1.2;margin-bottom:8px}
+.pdesc{font-size:15px;color:var(--txm);line-height:1.5}
+.pmeta{display:flex;gap:6px;margin-top:12px;flex-wrap:wrap}
+.tg{padding:2px 9px;border-radius:20px;font-size:11px;font-weight:500;background:var(--tg);color:var(--tgt)}
+.tg.blue{background:var(--ib);color:var(--ibt)}
 
-  /* ── LAYOUT ── */
-  .layout {
-    display: flex;
-    padding-top: var(--topbar-height);
-    min-height: 100vh;
-  }
+/* Info box */
+.info{background:var(--ib);border-left:3px solid var(--ibd);border-radius:0 7px 7px 0;padding:11px 16px;margin-bottom:24px;font-size:14px;color:var(--ibt);line-height:1.5}
 
-  /* ── SIDEBAR ── */
-  .sidebar {
-    position: fixed;
-    top: var(--topbar-height); bottom: 0; left: 0;
-    width: var(--sidebar-width);
-    background: var(--bg-sidebar);
-    border-right: 1px solid var(--border);
-    overflow-y: auto;
-    padding: 16px 0 40px;
-    scrollbar-width: thin;
-    scrollbar-color: var(--border) transparent;
-  }
-  .sidebar::-webkit-scrollbar { width: 4px; }
-  .sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+/* Section */
+.sec{margin-bottom:32px}
+.sch{display:flex;align-items:center;justify-content:space-between;cursor:pointer;user-select:none;padding:2px 0;margin-bottom:14px}
+.stitle{font-size:19px;font-weight:700;color:var(--tx);display:flex;align-items:center;gap:9px}
+.stitle::before{content:'';display:inline-block;width:4px;height:19px;background:var(--pr);border-radius:2px;flex-shrink:0}
+.h3{font-size:15px;font-weight:600;color:var(--tx);margin:18px 0 9px;display:flex;align-items:center;gap:7px}
+.h3n{width:22px;height:22px;border-radius:50%;background:var(--pr);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sacts{display:flex;gap:5px}
+.abt{padding:3px 9px;border-radius:5px;font-size:11px;font-weight:500;cursor:pointer;border:1px solid var(--bd);background:var(--bg);color:var(--txm);transition:.1s;display:flex;align-items:center;gap:3px}
+.abt:hover{border-color:var(--pr);color:var(--pr)}
+.sci{transition:transform .2s;font-size:11px;color:var(--txm)}
+.sec.cl .sci{transform:rotate(-90deg)}
+.sec.cl .sb2{display:none}
 
-  .sidebar-group { margin-bottom: 4px; }
-  .sidebar-group-header {
-    padding: 8px 16px 4px;
-    font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
-    text-transform: uppercase; color: var(--text-muted);
-    cursor: pointer; user-select: none;
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .sidebar-group-header:hover { color: var(--text); }
-  .sidebar-group-chevron {
-    transition: transform 0.2s;
-    font-size: 10px;
-    opacity: 0.6;
-  }
-  .sidebar-group.collapsed .sidebar-group-chevron { transform: rotate(-90deg); }
-  .sidebar-group-items { overflow: hidden; }
-  .sidebar-group.collapsed .sidebar-group-items { display: none; }
+p{line-height:1.7;margin-bottom:12px}
+ul,ol{padding-left:20px;margin-bottom:12px}
+li{line-height:1.7;margin-bottom:3px}
+strong{font-weight:600}
 
-  .sidebar-item {
-    display: flex; align-items: center; gap: 8px;
-    padding: 6px 16px; margin: 1px 8px; border-radius: 6px;
-    font-size: 13px; font-weight: 400; color: var(--text-sidebar);
-    cursor: pointer; text-decoration: none; transition: all 0.12s;
-  }
-  .sidebar-item:hover { background: var(--primary-subtle); color: var(--primary); }
-  .sidebar-item.active {
-    background: var(--sidebar-active-bg);
-    color: var(--sidebar-active-text);
-    font-weight: 600;
-  }
-  .sidebar-item-icon { font-size: 14px; opacity: 0.7; flex-shrink: 0; }
+blockquote{background:var(--qbg);border-left:4px solid var(--qb);border-radius:0 7px 7px 0;padding:14px 18px;margin:14px 0;font-style:italic;font-size:15px;color:var(--tx)}
+blockquote::before{content:'"';font-size:32px;color:var(--pr);line-height:0;vertical-align:-10px;margin-right:3px;font-style:normal}
 
-  /* ── MAIN CONTENT ── */
-  .main {
-    margin-left: var(--sidebar-width);
-    flex: 1;
-    display: flex;
-    justify-content: center;
-  }
-  .content {
-    width: 100%; max-width: 820px;
-    padding: 48px 48px 80px;
-  }
+.tw{overflow-x:auto;margin:14px 0;border-radius:9px;border:1px solid var(--bd)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead tr{background:var(--thbg)}
+th{padding:10px 14px;text-align:left;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--txm);border-bottom:1px solid var(--bd)}
+td{padding:10px 14px;border-bottom:1px solid var(--bd);color:var(--tx);vertical-align:top}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:nth-child(even){background:var(--trs)}
+tbody tr:hover{background:var(--prs)}
 
-  /* ── PAGE HEADER ── */
-  .page-header { margin-bottom: 32px; }
-  .page-breadcrumb {
-    font-size: 12px; color: var(--text-muted); margin-bottom: 8px;
-    display: flex; align-items: center; gap: 6px;
-  }
-  .page-breadcrumb span { opacity: 0.5; }
-  .page-title {
-    font-size: 32px; font-weight: 800; letter-spacing: -0.02em;
-    line-height: 1.2; color: var(--text); margin-bottom: 10px;
-  }
-  .page-description {
-    font-size: 16px; color: var(--text-muted); line-height: 1.5;
-  }
-  .page-meta {
-    display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap;
-  }
-  .tag {
-    padding: 3px 10px; border-radius: 20px; font-size: 12px; font-weight: 500;
-    background: var(--tag-bg); color: var(--tag-text);
-  }
-  .tag-blue { background: var(--info-bg); color: var(--info-text); }
+.badge{display:inline-flex;align-items:center;padding:2px 9px;border-radius:20px;font-size:11px;font-weight:600}
+.p1{background:var(--p1);color:var(--p1t)}.p2{background:var(--p2);color:var(--p2t)}.p3{background:var(--p3);color:var(--p3t)}.p4{background:var(--p4);color:var(--p4t)}.p5{background:var(--p5);color:var(--p5t)}
 
-  /* ── INFO BOX ── */
-  .info-box {
-    background: var(--info-bg);
-    border-left: 3px solid var(--info-border);
-    border-radius: 0 8px 8px 0;
-    padding: 14px 18px; margin-bottom: 28px;
-    font-size: 14px; color: var(--info-text); line-height: 1.5;
-  }
-  .info-box strong { color: inherit; }
+.sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.sc{background:var(--cb);border:1px solid var(--bd);border-radius:11px;padding:16px;text-align:center;box-shadow:var(--cs);transition:transform .12s}
+.sc:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(124,58,237,.12)}
+.sn{font-size:26px;font-weight:800;color:var(--pr);line-height:1;margin-bottom:3px}
+.sl{font-size:11px;color:var(--txm);font-weight:500}
 
-  /* ── SECTION / HEADING ── */
-  .section { margin-bottom: 36px; }
+.fg{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:14px 0}
+.fc{background:var(--cb);border:1px solid var(--bd);border-radius:9px;padding:14px;display:flex;align-items:flex-start;gap:10px}
+.fp{font-size:20px;font-weight:800;color:var(--pr);min-width:44px}
+.fn{font-weight:600;font-size:13px;margin-bottom:2px}
+.fd{font-size:11px;color:var(--txm)}
 
-  .section-header {
-    display: flex; align-items: center; justify-content: space-between;
-    cursor: pointer; user-select: none; padding: 2px 0; margin-bottom: 16px;
-  }
-  .section-title {
-    font-size: 20px; font-weight: 700; color: var(--text);
-    display: flex; align-items: center; gap: 10px;
-  }
-  .section-title::before {
-    content: '';
-    display: inline-block; width: 4px; height: 20px;
-    background: var(--primary); border-radius: 2px; flex-shrink: 0;
-  }
-  .h3-title {
-    font-size: 16px; font-weight: 600; color: var(--text);
-    margin: 20px 0 10px; display: flex; align-items: center; gap: 8px;
-  }
-  .h3-title .h3-num {
-    width: 24px; height: 24px; border-radius: 50%; background: var(--primary);
-    color: #fff; font-size: 12px; font-weight: 700;
-    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-  }
+.cg{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:14px 0}
+.cc{background:var(--cb);border:1px solid var(--bd);border-radius:11px;padding:16px;box-shadow:var(--cs);cursor:pointer;transition:all .12s}
+.cc:hover{border-color:var(--pr);box-shadow:0 4px 14px rgba(124,58,237,.12);transform:translateY(-2px)}
+.ci{width:38px;height:38px;border-radius:9px;background:var(--prs);color:var(--pr);display:flex;align-items:center;justify-content:center;font-size:17px;margin-bottom:10px}
+.ct{font-weight:600;font-size:13px;margin-bottom:5px}
+.cd{font-size:11px;color:var(--txm);line-height:1.4}
 
-  .section-actions { display: flex; gap: 6px; }
-  .action-btn {
-    padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 500;
-    cursor: pointer; border: 1px solid var(--border); background: var(--bg);
-    color: var(--text-muted); transition: all 0.12s; display: flex; align-items: center; gap: 4px;
-  }
-  .action-btn:hover { border-color: var(--primary); color: var(--primary); }
+.cl2{list-style:none;padding:0;display:flex;flex-direction:column;gap:7px;margin:10px 0}
+.ci2{display:flex;align-items:flex-start;gap:10px;padding:9px 13px;background:var(--cb);border:1px solid var(--bd);border-radius:7px;font-size:13px}
+.cd2{width:7px;height:7px;border-radius:50%;background:var(--pr);flex-shrink:0;margin-top:5px}
 
-  .section-collapse-icon { transition: transform 0.2s; font-size: 12px; color: var(--text-muted); }
-  .section.collapsed .section-collapse-icon { transform: rotate(-90deg); }
-  .section-body { overflow: hidden; }
-  .section.collapsed .section-body { display: none; }
+.ql{background:linear-gradient(135deg,var(--prs),var(--bg2));border:1px solid var(--prl);border-radius:11px;padding:18px 22px;margin:14px 0;position:relative;overflow:hidden}
+.ql::before{content:'"';position:absolute;top:-8px;left:14px;font-size:70px;color:var(--pr);opacity:.1;font-family:Georgia,serif;line-height:1}
+.qt{font-size:14px;font-style:italic;color:var(--tx);line-height:1.6;position:relative}
+.qlb{font-size:11px;color:var(--pr);font-weight:600;margin-top:6px}
 
-  /* ── PARAGRAPH & LISTS ── */
-  p { color: var(--text); line-height: 1.7; margin-bottom: 14px; }
-  ul, ol { padding-left: 22px; margin-bottom: 14px; }
-  li { color: var(--text); line-height: 1.7; margin-bottom: 4px; }
-  li strong { color: var(--primary); }
-  strong { font-weight: 600; }
+.steps{display:flex;flex-direction:column;gap:12px;margin:14px 0}
+.step{display:flex;gap:14px;align-items:flex-start;background:var(--cb);border:1px solid var(--bd);border-radius:9px;padding:14px}
+.stpn{width:30px;height:30px;border-radius:50%;background:var(--pr);color:#fff;font-weight:700;font-size:13px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.stpc{flex:1}
+.stpt{font-weight:600;font-size:13px;margin-bottom:3px}
+.stpd{font-size:12px;color:var(--txm);line-height:1.5}
 
-  /* ── BLOCKQUOTE ── */
-  blockquote {
-    background: var(--blockquote-bg);
-    border-left: 4px solid var(--blockquote-border);
-    border-radius: 0 8px 8px 0;
-    padding: 16px 20px; margin: 16px 0;
-    font-style: italic; font-size: 15px; color: var(--text);
-  }
-  blockquote::before {
-    content: '"';
-    font-size: 36px; color: var(--primary); line-height: 0;
-    vertical-align: -12px; margin-right: 4px; font-style: normal;
-  }
+.chk{list-style:none;padding:0;display:flex;flex-direction:column;gap:7px;margin:10px 0}
+.chi{display:flex;align-items:flex-start;gap:9px;padding:9px 13px;background:var(--cb);border:1px solid var(--bd);border-radius:7px;font-size:13px}
+.chb{width:17px;height:17px;border-radius:4px;border:2px solid var(--pr);flex-shrink:0;margin-top:1px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .12s}
+.chb:hover,.chb.on{background:var(--pr)}
+.chb.on::after{content:'✓';color:#fff;font-size:10px;font-weight:700}
 
-  /* ── TABLE ── */
-  .table-wrap {
-    overflow-x: auto; margin: 16px 0;
-    border-radius: 10px; border: 1px solid var(--border);
-  }
-  table { width: 100%; border-collapse: collapse; font-size: 14px; }
-  thead tr { background: var(--table-header-bg); }
-  th {
-    padding: 11px 16px; text-align: left;
-    font-size: 12px; font-weight: 700; letter-spacing: 0.04em;
-    text-transform: uppercase; color: var(--text-muted);
-    border-bottom: 1px solid var(--border);
-  }
-  td {
-    padding: 11px 16px; border-bottom: 1px solid var(--border);
-    color: var(--text); vertical-align: top;
-  }
-  tbody tr:last-child td { border-bottom: none; }
-  tbody tr:nth-child(even) { background: var(--table-stripe); }
-  tbody tr:hover { background: var(--primary-subtle); }
+/* Home */
+.hero{text-align:center;padding:52px 20px 36px}
+.hbadge{display:inline-block;padding:3px 12px;border-radius:20px;background:var(--prs);color:var(--pr);font-size:11px;font-weight:600;margin-bottom:14px}
+.hero h1{font-size:36px;font-weight:800;letter-spacing:-.03em;line-height:1.1;margin-bottom:14px;background:linear-gradient(135deg,var(--pr),var(--prl));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{font-size:16px;color:var(--txm);max-width:480px;margin:0 auto 24px}
+.hcta{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.hg{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-top:36px}
+.hc{background:var(--cb);border:1px solid var(--bd);border-radius:13px;padding:22px;box-shadow:var(--cs);cursor:pointer;transition:all .14s}
+.hc:hover{border-color:var(--pr);transform:translateY(-3px);box-shadow:0 8px 22px rgba(124,58,237,.12)}
+.hci{font-size:26px;margin-bottom:10px}
+.hct{font-size:15px;font-weight:700;margin-bottom:5px}
+.hcd{font-size:12px;color:var(--txm);line-height:1.4}
+.hcc{display:inline-block;margin-top:8px;font-size:10px;font-weight:600;padding:2px 7px;background:var(--tg);color:var(--tgt);border-radius:9px}
 
-  /* Pillar color badges */
-  .pillar-badge {
-    display: inline-flex; align-items: center;
-    padding: 3px 10px; border-radius: 20px;
-    font-size: 12px; font-weight: 600;
-  }
-  .p1 { background: var(--pill-1); color: var(--pill-1t); }
-  .p2 { background: var(--pill-2); color: var(--pill-2t); }
-  .p3 { background: var(--pill-3); color: var(--pill-3t); }
-  .p4 { background: var(--pill-4); color: var(--pill-4t); }
-  .p5 { background: var(--pill-5); color: var(--pill-5t); }
+.liveurl{background:linear-gradient(135deg,#065F46,#047857);border-radius:12px;padding:18px 22px;margin:20px 0;display:flex;align-items:center;gap:16px}
+.liveurl-dot{width:10px;height:10px;border-radius:50%;background:#34D399;flex-shrink:0;box-shadow:0 0 0 3px rgba(52,211,153,.3);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 3px rgba(52,211,153,.3)}50%{box-shadow:0 0 0 6px rgba(52,211,153,.1)}}
+.liveurl-text{flex:1}
+.liveurl-label{font-size:11px;font-weight:600;color:#6EE7B7;text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px}
+.liveurl-url{font-size:16px;font-weight:700;color:#fff}
+.liveurl-btn{padding:7px 16px;border-radius:7px;font-size:12px;font-weight:600;background:#10B981;color:#fff;border:none;cursor:pointer;text-decoration:none;white-space:nowrap}
 
-  /* ── STAT CARDS ── */
-  .stat-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 14px; margin: 16px 0;
-  }
-  .stat-card {
-    background: var(--card-bg); border: 1px solid var(--border);
-    border-radius: 12px; padding: 18px; text-align: center;
-    box-shadow: var(--card-shadow);
-    transition: transform 0.12s, box-shadow 0.12s;
-  }
-  .stat-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(124,58,237,0.12); }
-  .stat-num { font-size: 28px; font-weight: 800; color: var(--primary); line-height: 1; margin-bottom: 4px; }
-  .stat-label { font-size: 12px; color: var(--text-muted); font-weight: 500; }
+.acc{border:1px solid var(--bd);border-radius:9px;overflow:hidden;margin:14px 0}
+.ach{padding:12px 16px;background:var(--bg2);cursor:pointer;font-weight:600;font-size:13px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--bd)}
+.ach:last-child{border-bottom:none}
+.ach-ico{transition:transform .2s;font-size:11px;color:var(--txm)}
+.ach.open .ach-ico{transform:rotate(180deg)}
+.acb{padding:14px 16px;border-bottom:1px solid var(--bd);display:none}
+.acb.open{display:block}
+.acb:last-child{border-bottom:none}
+.acb ul{margin:0;padding-left:18px}
+.acb li{font-size:13px;margin-bottom:4px}
 
-  /* ── KPI LIST ── */
-  .kpi-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px; }
-  .kpi-item {
-    display: flex; align-items: flex-start; gap: 12px;
-    background: var(--card-bg); border: 1px solid var(--border);
-    border-radius: 8px; padding: 12px 16px;
-  }
-  .kpi-dot {
-    width: 8px; height: 8px; border-radius: 50%;
-    background: var(--primary); flex-shrink: 0; margin-top: 7px;
-  }
-  .kpi-text { font-size: 14px; color: var(--text); }
+.code{background:var(--cbg);border-radius:7px;padding:14px 16px;font-family:'JetBrains Mono','Fira Code',monospace;font-size:12px;line-height:1.6;overflow-x:auto;margin:12px 0;white-space:pre}
 
-  /* ── FORMAT MIX ── */
-  .format-grid {
-    display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 16px 0;
-  }
-  .format-card {
-    background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px;
-    padding: 16px; display: flex; align-items: flex-start; gap: 12px;
-  }
-  .format-pct {
-    font-size: 22px; font-weight: 800; color: var(--primary); min-width: 48px;
-  }
-  .format-info { flex: 1; }
-  .format-name { font-weight: 600; font-size: 14px; margin-bottom: 2px; }
-  .format-desc { font-size: 12px; color: var(--text-muted); }
+.divider{border:none;border-top:1px solid var(--bd);margin:22px 0}
 
-  /* ── CARD GROUP ── */
-  .card-group { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin: 16px 0; }
-  .kb-card {
-    background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px;
-    padding: 18px 16px; box-shadow: var(--card-shadow);
-    transition: all 0.15s; cursor: pointer;
-  }
-  .kb-card:hover { border-color: var(--primary); box-shadow: 0 4px 16px rgba(124,58,237,0.12); transform: translateY(-2px); }
-  .kb-card-icon {
-    width: 40px; height: 40px; border-radius: 10px;
-    background: var(--primary-subtle); color: var(--primary);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 18px; margin-bottom: 12px;
-  }
-  .kb-card-title { font-weight: 600; font-size: 14px; margin-bottom: 6px; }
-  .kb-card-desc { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+.toast{position:fixed;bottom:22px;right:22px;z-index:9999;background:var(--tx);color:var(--bg);padding:9px 16px;border-radius:7px;font-size:12px;font-weight:500;opacity:0;transform:translateY(6px);transition:all .2s;pointer-events:none}
+.toast.on{opacity:1;transform:translateY(0)}
 
-  /* ── CHECKLIST ── */
-  .checklist { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; margin: 12px 0; }
-  .checklist-item {
-    display: flex; align-items: flex-start; gap: 10px;
-    padding: 10px 14px; background: var(--card-bg); border: 1px solid var(--border);
-    border-radius: 8px; font-size: 14px;
-  }
-  .check-box {
-    width: 18px; height: 18px; border-radius: 5px; border: 2px solid var(--primary);
-    flex-shrink: 0; margin-top: 1px; display: flex; align-items: center; justify-content: center;
-    cursor: pointer; transition: all 0.15s;
-  }
-  .check-box:hover { background: var(--primary); }
-  .check-box.checked { background: var(--primary); }
-  .check-box.checked::after { content: '✓'; color: #fff; font-size: 11px; font-weight: 700; }
+.pg{display:none}.pg.on{display:block}
 
-  /* ── QUOTE HIGHLIGHT ── */
-  .quote-highlight {
-    background: linear-gradient(135deg, var(--primary-subtle), var(--bg-secondary));
-    border: 1px solid var(--primary-light);
-    border-radius: 12px; padding: 20px 24px; margin: 16px 0;
-    position: relative; overflow: hidden;
-  }
-  .quote-highlight::before {
-    content: '"'; position: absolute; top: -10px; left: 16px;
-    font-size: 80px; color: var(--primary); opacity: 0.1; font-family: Georgia, serif;
-    line-height: 1;
-  }
-  .quote-highlight-text { font-size: 15px; font-style: italic; color: var(--text); line-height: 1.6; position: relative; }
-  .quote-highlight-label { font-size: 12px; color: var(--primary); font-weight: 600; margin-top: 8px; }
-
-  /* ── FRAMEWORK STEPS ── */
-  .steps { display: flex; flex-direction: column; gap: 16px; margin: 16px 0; }
-  .step {
-    display: flex; gap: 16px; align-items: flex-start;
-    background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px;
-    padding: 16px;
-  }
-  .step-num {
-    width: 32px; height: 32px; border-radius: 50%; background: var(--primary);
-    color: #fff; font-weight: 700; font-size: 14px; flex-shrink: 0;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .step-content { flex: 1; }
-  .step-title { font-weight: 600; font-size: 14px; margin-bottom: 4px; }
-  .step-desc { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
-
-  /* ── HOME PAGE ── */
-  .home-hero {
-    text-align: center; padding: 60px 24px 40px;
-  }
-  .home-hero-badge {
-    display: inline-block; padding: 4px 14px; border-radius: 20px;
-    background: var(--primary-subtle); color: var(--primary); font-size: 12px; font-weight: 600;
-    margin-bottom: 16px;
-  }
-  .home-hero h1 {
-    font-size: 40px; font-weight: 800; letter-spacing: -0.03em;
-    line-height: 1.1; margin-bottom: 16px;
-    background: linear-gradient(135deg, var(--primary), var(--primary-light));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  .home-hero p { font-size: 17px; color: var(--text-muted); max-width: 520px; margin: 0 auto 28px; }
-  .home-cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-  .home-sections-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 16px; margin-top: 40px;
-  }
-  .home-section-card {
-    background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px;
-    padding: 24px; box-shadow: var(--card-shadow); cursor: pointer;
-    transition: all 0.15s;
-  }
-  .home-section-card:hover { border-color: var(--primary); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(124,58,237,0.12); }
-  .home-section-icon { font-size: 28px; margin-bottom: 12px; }
-  .home-section-title { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
-  .home-section-desc { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
-  .home-section-count {
-    display: inline-block; margin-top: 10px; font-size: 11px; font-weight: 600;
-    padding: 2px 8px; background: var(--tag-bg); color: var(--tag-text); border-radius: 10px;
-  }
-
-  /* ── DIVIDER ── */
-  .divider { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
-
-  /* ── TOAST ── */
-  .toast {
-    position: fixed; bottom: 24px; right: 24px; z-index: 9999;
-    background: var(--text); color: var(--bg); padding: 10px 18px;
-    border-radius: 8px; font-size: 13px; font-weight: 500;
-    opacity: 0; transform: translateY(8px);
-    transition: all 0.2s; pointer-events: none;
-  }
-  .toast.show { opacity: 1; transform: translateY(0); }
-
-  /* ── SEARCH BAR ── */
-  .search-bar {
-    flex: 1; max-width: 280px;
-    display: flex; align-items: center; gap: 8px;
-    background: var(--bg-secondary); border: 1px solid var(--border);
-    border-radius: 8px; padding: 6px 12px; cursor: pointer;
-  }
-  .search-bar-text { font-size: 13px; color: var(--text-muted); }
-  .search-bar-kbd {
-    margin-left: auto; font-size: 11px; color: var(--text-muted);
-    background: var(--border); padding: 1px 5px; border-radius: 4px;
-  }
-
-  @media (max-width: 768px) {
-    .sidebar { display: none; }
-    .main { margin-left: 0; }
-    .content { padding: 24px 20px 60px; }
-    .home-hero h1 { font-size: 28px; }
-    .format-grid { grid-template-columns: 1fr; }
-  }
-
-  /* Page transitions */
-  .page { display: none; }
-  .page.active { display: block; }
-
-  /* Prose spacing */
-  .prose > * + * { margin-top: 0; }
-  .prose p + p { margin-top: 14px; }
+@media(max-width:768px){.sb{display:none}.main{margin-left:0}.content{padding:20px 18px 60px}.hero h1{font-size:26px}.fg{grid-template-columns:1fr}.tabs{display:none}}
 </style>
 </head>
 <body>
 
-<!-- TOPBAR -->
 <header class="topbar">
-  <a class="topbar-logo" href="#" onclick="showPage('home')">
-    <svg viewBox="0 0 28 28" fill="none">
-      <rect width="28" height="28" rx="7" fill="#7C3AED"/>
-      <path d="M7 14l5 5 9-10" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
+  <a class="logo" href="#" onclick="nav('home')">
+    <svg viewBox="0 0 26 26" fill="none"><rect width="26" height="26" rx="6" fill="#7C3AED"/><path d="M6 13l5 5 9-10" stroke="#fff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
     Genspark KB
   </a>
-
-  <div class="search-bar" onclick="alert('Search coming soon')">
-    <span style="font-size:14px;opacity:0.5">🔍</span>
-    <span class="search-bar-text">Search knowledge base…</span>
-    <span class="search-bar-kbd">⌘K</span>
+  <div class="srch"><span>🔍</span><span class="srch">Search…</span><kbd>⌘K</kbd></div>
+  <div class="tabs" id="tabs">
+    <button class="tab on" onclick="tab('home',this)">Home</button>
+    <button class="tab" onclick="tab('business',this)">Business</button>
+    <button class="tab" onclick="tab('marketing',this)">Marketing</button>
+    <button class="tab" onclick="tab('tech',this)">Tech Builds</button>
+    <button class="tab" onclick="tab('creative',this)">Creative</button>
+    <button class="tab" onclick="tab('personal',this)">Personal</button>
+    <button class="tab" onclick="tab('other',this)">Other</button>
   </div>
-
-  <div class="topbar-tabs">
-    <button class="topbar-tab active" onclick="switchTab('home',this)">Home</button>
-    <button class="topbar-tab" onclick="switchTab('business',this)">Business</button>
-    <button class="topbar-tab" onclick="switchTab('marketing',this)">Marketing</button>
-    <button class="topbar-tab" onclick="switchTab('tech',this)">Tech Builds</button>
-    <button class="topbar-tab" onclick="switchTab('creative',this)">Creative</button>
-    <button class="topbar-tab" onclick="switchTab('personal',this)">Personal</button>
-  </div>
-
-  <div class="topbar-actions">
-    <a href="https://www.notion.so/rtmendes/3a86d329c0ca49a29137fd0c269fecb0" target="_blank" class="btn-ghost">Notion DB</a>
-    <a href="https://www.genspark.ai/hub" target="_blank" class="btn-primary">Genspark ↗</a>
-    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Toggle theme">🌙</button>
+  <div class="acts">
+    <a href="https://www.notion.so/rtmendes/3a86d329c0ca49a29137fd0c269fecb0" target="_blank" class="bg">Notion DB</a>
+    <a href="https://knowledge-base-v2-dun.vercel.app" target="_blank" class="bp">Live KB ↗</a>
+    <button class="tt" onclick="dark()" id="tt">🌙</button>
   </div>
 </header>
 
 <div class="layout">
+<nav class="sb" id="sb"></nav>
+<main class="main"><div class="content" id="content">
 
-  <!-- SIDEBAR -->
-  <nav class="sidebar" id="sidebar">
-    <!-- populated by JS -->
-  </nav>
-
-  <!-- MAIN -->
-  <main class="main">
-    <div class="content">
-
-      <!-- ══ HOME PAGE ══ -->
-      <div class="page active" id="page-home">
-        <div class="home-hero">
-          <div class="home-hero-badge">✦ Genspark Knowledge Base</div>
-          <h1>Your AI-Powered<br/>Knowledge Hub</h1>
-          <p>46 connected hubs · 59 curated pages · Business, Marketing, Tech, Creative & more</p>
-          <div class="home-cta">
-            <button class="btn-primary" onclick="showPage('brain-fog-campaign')">View Brain Fog Campaign →</button>
-            <button class="btn-ghost" onclick="showPage('brandon-lucero-playbook')">Brandon Lucero Playbook</button>
-          </div>
-        </div>
-
-        <div class="home-sections-grid">
-          <div class="home-section-card" onclick="switchTab('business',document.querySelectorAll('.topbar-tab')[1])">
-            <div class="home-section-icon">💼</div>
-            <div class="home-section-title">Business</div>
-            <div class="home-section-desc">FGS, Second Spring, Product Ideas, Insight Profit, FTK and more strategic ventures</div>
-            <span class="home-section-count">7 groups · 16 pages</span>
-          </div>
-          <div class="home-section-card" onclick="switchTab('marketing',document.querySelectorAll('.topbar-tab')[2])">
-            <div class="home-section-icon">📣</div>
-            <div class="home-section-title">Marketing</div>
-            <div class="home-section-desc">Copywriting playbooks, LinkedIn strategies, ad ideas, email sequences, YouTube scripts</div>
-            <span class="home-section-count">7 groups · 10 pages</span>
-          </div>
-          <div class="home-section-card" onclick="switchTab('tech',document.querySelectorAll('.topbar-tab')[3])">
-            <div class="home-section-icon">⚡</div>
-            <div class="home-section-title">Tech Builds</div>
-            <div class="home-section-desc">AI agents, software comparisons, landing page builders, internal KB systems</div>
-            <span class="home-section-count">8 groups · 11 pages</span>
-          </div>
-          <div class="home-section-card" onclick="switchTab('creative',document.querySelectorAll('.topbar-tab')[4])">
-            <div class="home-section-icon">🎨</div>
-            <div class="home-section-title">Creative</div>
-            <div class="home-section-desc">Design mastery, tone & voice guidelines, eBook templates, video storyboards</div>
-            <span class="home-section-count">4 groups · 5 pages</span>
-          </div>
-          <div class="home-section-card" onclick="switchTab('personal',document.querySelectorAll('.topbar-tab')[5])">
-            <div class="home-section-icon">🧘</div>
-            <div class="home-section-title">Personal</div>
-            <div class="home-section-desc">Health & wellness (GLP-1, fitness, skin, ADD, brain), lifestyle and travel resources</div>
-            <span class="home-section-count">9 groups · 10 pages</span>
-          </div>
-          <div class="home-section-card" onclick="showPage('brain-fog-campaign')">
-            <div class="home-section-icon">🧠</div>
-            <div class="home-section-title">Featured: Brain Fog Campaign</div>
-            <div class="home-section-desc">180-post LinkedIn content library targeting menopause brain fog — professional women 35–55</div>
-            <span class="home-section-count">6 months · 180 posts</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- ══ BRAIN FOG CAMPAIGN PAGE ══ -->
-      <div class="page" id="page-brain-fog-campaign">
-        <div class="page-header">
-          <div class="page-breadcrumb">
-            Business <span>›</span> Second Spring <span>›</span> Brain Fog Campaign
-          </div>
-          <h1 class="page-title">🧠 Brain Fog Campaign</h1>
-          <p class="page-description">LinkedIn campaign targeting menopause brain fog — 180 posts, full content library</p>
-          <div class="page-meta">
-            <span class="tag">LinkedIn</span>
-            <span class="tag">180 Posts</span>
-            <span class="tag">6 Months</span>
-            <span class="tag-blue tag">Second Spring</span>
-          </div>
-        </div>
-
-        <div class="info-box">
-          Extracted from the <strong>Brain Fog LinkedIn Campaign</strong> chat. A complete 180-post LinkedIn content library targeting menopause brain fog.
-        </div>
-
-        <!-- Campaign Overview -->
-        <div class="section" id="sec-overview">
-          <div class="section-header" onclick="toggleSection('sec-overview')">
-            <div class="section-title">Campaign Overview</div>
-            <div class="section-actions">
-              <button class="action-btn" onclick="copySection(event,'sec-overview')">📋 Copy</button>
-              <button class="action-btn" onclick="printSection(event,'sec-overview')">⬇ PDF</button>
-              <span class="section-collapse-icon">▾</span>
-            </div>
-          </div>
-          <div class="section-body">
-            <p>The Brain Fog Campaign is a LinkedIn-first content initiative addressing one of menopause's most professionally disruptive symptoms — cognitive fog. It targets professional women (35–55) who are high-performers experiencing unexplained cognitive decline.</p>
-
-            <div class="stat-grid">
-              <div class="stat-card">
-                <div class="stat-num">180</div>
-                <div class="stat-label">LinkedIn Posts</div>
-              </div>
-              <div class="stat-card">
-                <div class="stat-num">6</div>
-                <div class="stat-label">Month Duration</div>
-              </div>
-              <div class="stat-card">
-                <div class="stat-num">30</div>
-                <div class="stat-label">Posts / Month</div>
-              </div>
-              <div class="stat-card">
-                <div class="stat-num">35–55</div>
-                <div class="stat-label">Target Age Range</div>
-              </div>
-            </div>
-
-            <p style="margin-top:12px"><strong>Primary Platform:</strong> LinkedIn &nbsp;·&nbsp; <strong>Target Audience:</strong> Professional women, HR leaders, C-suite executives</p>
-          </div>
-        </div>
-
-        <!-- Why Brain Fog -->
-        <div class="section" id="sec-why">
-          <div class="section-header" onclick="toggleSection('sec-why')">
-            <div class="section-title">Why Brain Fog for LinkedIn?</div>
-            <div class="section-actions">
-              <button class="action-btn" onclick="copySection(event,'sec-why')">📋 Copy</button>
-              <span class="section-collapse-icon">▾</span>
-            </div>
-          </div>
-          <div class="section-body">
-            <ul>
-              <li>Professional women are often ashamed of cognitive symptoms at work</li>
-              <li>LinkedIn audiences are high-intent and receptive to wellness in professional contexts</li>
-              <li>Brain fog as a topic bridges <strong>personal health → workplace productivity → enterprise wellness</strong></li>
-              <li>Creates a natural upsell path to Second Spring's enterprise corporate wellness offering</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Content Pillars -->
-        <div class="section" id="sec-pillars">
-          <div class="section-header" onclick="toggleSection('sec-pillars')">
-            <div class="section-title">Content Pillars — 180 Posts Breakdown</div>
-            <div class="section-actions">
-              <button class="action-btn" onclick="copySection(event,'sec-pillars')">📋 Copy</button>
-              <button class="action-btn" onclick="printSection(event,'sec-pillars')">⬇ PDF</button>
-              <span class="section-collapse-icon">▾</span>
-            </div>
-          </div>
-          <div class="section-body">
-            <div class="table-wrap">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Pillar</th>
-                    <th>Post Count</th>
-                    <th>% of Total</th>
-                    <th>Purpose</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="pillar-badge p1">Education &amp; Awareness</span></td>
-                    <td><strong>54</strong></td>
-                    <td>30%</td>
-                    <td>Build problem recognition</td>
-                  </tr>
-                  <tr>
-                    <td><span class="pillar-badge p2">Personal Stories &amp; Validation</span></td>
-                    <td><strong>36</strong></td>
-                    <td>20%</td>
-                    <td>Create emotional connection</td>
-                  </tr>
-                  <tr>
-                    <td><span class="pillar-badge p3">Science &amp; Research</span></td>
-                    <td><strong>27</strong></td>
-                    <td>15%</td>
-                    <td>Build credibility (E-E-A-T)</td>
-                  </tr>
-                  <tr>
-                    <td><span class="pillar-badge p4">Solutions &amp; Tips</span></td>
-                    <td><strong>36</strong></td>
-                    <td>20%</td>
-                    <td>Provide value, drive traffic</td>
-                  </tr>
-                  <tr>
-                    <td><span class="pillar-badge p5">Community &amp; Conversation</span></td>
-                    <td><strong>27</strong></td>
-                    <td>15%</td>
-                    <td>Engagement and social proof</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        <!-- Post Format Mix -->
-        <div class="section" id="sec-formats">
-          <div class="section-header" onclick="toggleSection('sec-formats')">
-            <div class="section-title">Post Format Mix</div>
-            <div class="section-actions">
-              <button class="action-btn" onclick="copySection(event,'sec-formats')">📋 Copy</button>
-              <span class="section-collapse-icon">▾</span>
-            </div>
-          </div>
-          <div class="section-body">
-            <div class="format-grid">
-              <div class="format-card">
-                <div class="format-pct">40%</div>
-                <div class="format-info">
-                  <div class="format-name">📝 Text Posts</div>
-                  <div class="format-desc">Personal narratives, hot takes, statistics — highest organic reach</div>
-                </div>
-              </div>
-              <div class="format-card">
-                <div class="format-pct">30%</div>
-                <div class="format-info">
-                  <div class="format-name">🎠 Carousels</div>
-                  <div class="format-desc">"5 signs you have menopause brain fog" style — high saves & shares</div>
-                </div>
-              </div>
-              <div class="format-card">
-                <div class="format-pct">20%</div>
-                <div class="format-info">
-                  <div class="format-name">🎥 Video</div>
-                  <div class="format-desc">Talking head, expert interviews, testimonials — highest trust-building</div>
-                </div>
-              </div>
-              <div class="format-card">
-                <div class="format-pct">10%</div>
-                <div class="format-info">
-                  <div class="format-name">📊 Polls</div>
-                  <div class="format-desc">Engagement drivers, community research collection</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Sample Post Templates -->
-        <div class="section" id="sec-templates">
-          <div class="section-header" onclick="toggleSection('sec-templates')">
-            <div class="section-title">Sample Post Templates</div>
-            <div class="section-actions">
-              <button class="action-btn" onclick="copySection(event,'sec-templates')">📋 Copy</button>
-              <span class="section-collapse-icon">▾</span>
-            </div>
-          </div>
-          <div class="section-body">
-            <div class="h3-title"><span class="h3-num">A</span> Awareness Post</div>
-            <blockquote>
-              I thought I was getting early Alzheimer's. Turns out, I was 47 and in perimenopause. Brain fog isn't weakness. It's biology. And it's fixable. Here's what helped me: [list]
-            </blockquote>
-
-            <div class="h3-title"><span class="h3-num">B</span> Corporate Angle Post</div>
-            <blockquote>
-              Your highest-performing women aren't burning out. They're going through menopause. And most companies have no idea — or no solution. Second Spring's corporate wellness program changes that.
-            </blockquote>
-          </div>
-        </div>
-
-        <!-- Campaign KPIs -->
-        <div class="section" id="sec-kpis">
-          <div class="section-header" onclick="toggleSection('sec-kpis')">
-            <div class="section-title">Campaign KPIs</div>
-            <div class="section-actions">
-              <button class="action-btn" onclick="copySection(event,'sec-kpis')">📋 Copy</button>
-              <span class="section-collapse-icon">▾</span>
-            </div>
-          </div>
-          <div class="section-body">
-            <ul class="kpi-list">
-              <li class="kpi-item">
-                <span class="kpi-dot"></span>
-                <span class="kpi-text"><strong>LinkedIn follower growth:</strong> +2,000/month</span>
-              </li>
-              <li class="kpi-item">
-                <span class="kpi-dot"></span>
-                <span class="kpi-text"><strong>Post impressions:</strong> 500K/month by month 3</span>
-              </li>
-              <li class="kpi-item">
-                <span class="kpi-dot"></span>
-                <span class="kpi-text"><strong>Lead gen (enterprise inquiries):</strong> 10–20/month from corporate angle posts</span>
-              </li>
-              <li class="kpi-item">
-                <span class="kpi-dot"></span>
-                <span class="kpi-text"><strong>Email signups from LinkedIn:</strong> 500/month</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <!-- end brain-fog-campaign -->
-
-      <!-- ══ BRANDON LUCERO PLAYBOOK PAGE ══ -->
-      <div class="page" id="page-brandon-lucero-playbook">
-        <div class="page-header">
-          <div class="page-breadcrumb">
-            Marketing <span>›</span> Copywriting <span>›</span> Brandon Lucero Playbook
-          </div>
-          <h1 class="page-title">📖 Brandon Lucero Playbook</h1>
-          <p class="page-description">Complete conversion psychology framework and persuasion techniques from the full workshop transcript</p>
-          <div class="page-meta">
-            <span class="tag">Conversion Psychology</span>
-            <span class="tag">Copywriting</span>
-            <span class="tag">Demand Gen</span>
-            <span class="tag-blue tag">Marketing</span>
-          </div>
-        </div>
-
-        <div class="info-box">
-          Extracted from the <strong>Brandon Lucero Playbook</strong> chat — a full workshop transcript covering conversion psychology, demand generation, and persuasion systems.
-        </div>
-
-        <!-- About -->
-        <div class="section" id="sec-about">
-          <div class="section-header" onclick="toggleSection('sec-about')">
-            <div class="section-title">About Brandon Lucero</div>
-            <div class="section-actions">
-              <button class="action-btn" onclick="copySection(event,'sec-about')">📋 Copy</button>
-              <span class="section-collapse-icon">▾</span>
-            </div>
-          </div>
-          <div class="section-body">
-            <p>Brandon Lucero is a conversion psychology educator known for his work on making content and messaging that converts through <strong>psychological alignment</strong> rather than hard-sell tactics. His approach combines:</p>
-            <ul>
-              <li>Consumer psychology</li>
-              <li>Neuroscience-based communication</li>
-              <li>Content-first marketing</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Core Framework -->
-        <div class="section" id="sec-framework">
-          <div class="section-header" onclick="toggleSection('sec-framework')">
-            <div class="section-title">Core Framework: The Conversion Psychology System</div>
-            <div class="section-actions">
-              <button class="action-btn" onclick="copySection(event,'sec-framework')">📋 Copy</button>
-              <button class="action-btn" onclick="printSection(event,'sec-framework')">⬇ PDF</button>
-              <span class="section-collapse-icon">▾</span>
-            </div>
-          </div>
-          <div class="section-body">
-
-            <div class="h3-title"><span class="h3-num">1</span> The Thought Reversal Method</div>
-            <p>Most marketing fights against objections. Lucero's approach <strong>reverses the thought pattern entirely</strong> — creating content that makes prospects come to the desired conclusion themselves.</p>
-            <div class="steps">
-              <div class="step">
-                <div class="step-num">1</div>
-                <div class="step-content">
-                  <div class="step-title">Identify the Blocking Belief</div>
-                  <div class="step-desc">Find the core belief that prevents the sale from happening</div>
-                </div>
-              </div>
-              <div class="step">
-                <div class="step-num">2</div>
-                <div class="step-content">
-                  <div class="step-title">Challenge the Root Assumption</div>
-                  <div class="step-desc">Create content that targets the underlying assumption — not the surface objection</div>
-                </div>
-              </div>
-              <div class="step">
-                <div class="step-num">3</div>
-                <div class="step-content">
-                  <div class="step-title">Organic Belief Discovery</div>
-                  <div class="step-desc">Let the prospect discover the new belief organically through your content</div>
-                </div>
-              </div>
-              <div class="step">
-                <div class="step-num">4</div>
-                <div class="step-content">
-                  <div class="step-title">Pre-Sale Conversion</div>
-                  <div class="step-desc">The conversion happens before the offer is even made</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="h3-title"><span class="h3-num">2</span> The Demand Hook Engine</div>
-            <p>Generate demand before pitching by following this 3-part sequence:</p>
-            <div class="steps">
-              <div class="step">
-                <div class="step-num">①</div>
-                <div class="step-content">
-                  <div class="step-title">Agitate</div>
-                  <div class="step-desc">Surface an existing frustration or desire the prospect already has</div>
-                </div>
-              </div>
-              <div class="step">
-                <div class="step-num">②</div>
-                <div class="step-content">
-                  <div class="step-title">Reframe</div>
-                  <div class="step-desc">Present a new paradigm — a surprising or counter-intuitive perspective</div>
-                </div>
-              </div>
-              <div class="step">
-                <div class="step-num">③</div>
-                <div class="step-content">
-                  <div class="step-title">Position</div>
-                  <div class="step-desc">Your product becomes the natural solution within the new frame</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="h3-title"><span class="h3-num">3</span> Content That Converts (Not Just Engages)</div>
-            <div class="table-wrap">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Content Type</th>
-                    <th>What It Does</th>
-                    <th>Outcome</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="pillar-badge p3">Engagement Content</span></td>
-                    <td>Gets likes, shares, comments</td>
-                    <td>Audience growth, visibility</td>
-                  </tr>
-                  <tr>
-                    <td><span class="pillar-badge p1">Conversion Content</span></td>
-                    <td>Changes beliefs, creates buyers</td>
-                    <td>Revenue, customers</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <p>The key: <strong>conversion content must shift <em>identity</em>, not just deliver information.</strong></p>
-          </div>
-        </div>
-
-        <!-- NEPQ Connection -->
-        <div class="section" id="sec-nepq">
-          <div class="section-header" onclick="toggleSection('sec-nepq')">
-            <div class="section-title">The NEPQ Connection</div>
-            <div class="section-actions">
-              <button class="action-btn" onclick="copySection(event,'sec-nepq')">📋 Copy</button>
-              <span class="section-collapse-icon">▾</span>
-            </div>
-          </div>
-          <div class="section-body">
-            <p>Lucero's persuasion system overlaps with NEPQ (Neuro-Emotional Persuasion Questioning):</p>
-            <ul>
-              <li>Questions that surface <strong>emotional pain</strong></li>
-              <li>Statements that reframe <strong>identity</strong></li>
-              <li>Closes that feel like the <strong>prospect's own decision</strong></li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Key Takeaways -->
-        <div class="section" id="sec-takeaways">
-          <div class="section-header" onclick="toggleSection('sec-takeaways')">
-            <div class="section-title">Workshop Key Takeaways</div>
-            <div class="section-actions">
-              <button class="action-btn" onclick="copySection(event,'sec-takeaways')">📋 Copy</button>
-              <button class="action-btn" onclick="printSection(event,'sec-takeaways')">⬇ PDF</button>
-              <span class="section-collapse-icon">▾</span>
-            </div>
-          </div>
-          <div class="section-body">
-            <div class="quote-highlight">
-              <div class="quote-highlight-text">People don't buy products. They buy the version of themselves they believe they'll become.</div>
-              <div class="quote-highlight-label">On Messaging</div>
-            </div>
-            <div class="quote-highlight">
-              <div class="quote-highlight-text">Stop creating content to educate. Start creating content to change beliefs. Those are very different jobs.</div>
-              <div class="quote-highlight-label">On Content Strategy</div>
-            </div>
-            <div class="quote-highlight">
-              <div class="quote-highlight-text">The objection you're trying to overcome in your close is the belief you failed to shift in your content.</div>
-              <div class="quote-highlight-label">On Objections</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Implementation Checklist -->
-        <div class="section" id="sec-checklist">
-          <div class="section-header" onclick="toggleSection('sec-checklist')">
-            <div class="section-title">Implementation Checklist</div>
-            <div class="section-actions">
-              <button class="action-btn" onclick="copySection(event,'sec-checklist')">📋 Copy</button>
-              <span class="section-collapse-icon">▾</span>
-            </div>
-          </div>
-          <div class="section-body">
-            <ul class="checklist" id="checklist-lucero">
-              <li class="checklist-item">
-                <div class="check-box" onclick="toggleCheck(this)"></div>
-                <span>Audit current content: is it educational or belief-shifting?</span>
-              </li>
-              <li class="checklist-item">
-                <div class="check-box" onclick="toggleCheck(this)"></div>
-                <span>Map the 3 core objections for each offer</span>
-              </li>
-              <li class="checklist-item">
-                <div class="check-box" onclick="toggleCheck(this)"></div>
-                <span>For each objection, create a Thought Reversal piece of content</span>
-              </li>
-              <li class="checklist-item">
-                <div class="check-box" onclick="toggleCheck(this)"></div>
-                <span>Build a Demand Hook Engine content sequence (7–14 pieces)</span>
-              </li>
-              <li class="checklist-item">
-                <div class="check-box" onclick="toggleCheck(this)"></div>
-                <span>A/B test conversion content vs. standard educational content</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Tools -->
-        <div class="section" id="sec-tools">
-          <div class="section-header" onclick="toggleSection('sec-tools')">
-            <div class="section-title">Nested Tools</div>
-            <div class="section-actions">
-              <button class="action-btn" onclick="copySection(event,'sec-tools')">📋 Copy</button>
-              <span class="section-collapse-icon">▾</span>
-            </div>
-          </div>
-          <div class="section-body">
-            <div class="card-group">
-              <div class="kb-card">
-                <div class="kb-card-icon">🔥</div>
-                <div class="kb-card-title">Demand Hook Engine</div>
-                <div class="kb-card-desc">AI-powered tool for generating demand hooks from your offer's core transformation</div>
-              </div>
-              <div class="kb-card">
-                <div class="kb-card-icon">🔄</div>
-                <div class="kb-card-title">Thought Reversal Bot</div>
-                <div class="kb-card-desc">Generates content that reverses objection-causing beliefs before the sale</div>
-              </div>
-              <div class="kb-card">
-                <div class="kb-card-icon">💬</div>
-                <div class="kb-card-title">Conversion Messaging Bot</div>
-                <div class="kb-card-desc">Creates high-converting messaging sequences for each stage of the funnel</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- end brandon-lucero-playbook -->
-
+<!-- ══ HOME ══ -->
+<div class="pg on" id="pg-home">
+  <div class="hero">
+    <div class="hbadge">✦ Genspark Knowledge Base</div>
+    <h1>Your AI-Powered<br/>Knowledge Hub</h1>
+    <p>46 connected hubs · 73+ research chats · Business, Marketing, Tech, Creative &amp; more</p>
+    <div class="hcta">
+      <button class="bp" onclick="nav('second-spring-brain-fog')">Brain Fog Campaign →</button>
+      <button class="bg" onclick="nav('copywriting-lucero')">Brandon Lucero Playbook</button>
     </div>
-  </main>
+  </div>
+
+  <div class="liveurl">
+    <div class="liveurl-dot"></div>
+    <div class="liveurl-text">
+      <div class="liveurl-label">✅ Live Published Knowledge Base</div>
+      <div class="liveurl-url">knowledge-base-v2-dun.vercel.app</div>
+    </div>
+    <a href="https://knowledge-base-v2-dun.vercel.app" target="_blank" class="liveurl-btn">Open →</a>
+  </div>
+
+  <div class="hg">
+    <div class="hc" onclick="tab('business',document.querySelectorAll('.tab')[1])">
+      <div class="hci">💼</div><div class="hct">Business</div>
+      <div class="hcd">FGS, Second Spring, Product Ideas, Insight Profit, FTK</div>
+      <span class="hcc">41 chats · 7 hubs</span>
+    </div>
+    <div class="hc" onclick="tab('marketing',document.querySelectorAll('.tab')[2])">
+      <div class="hci">📣</div><div class="hct">Marketing</div>
+      <div class="hcd">Copywriting playbooks, LinkedIn, Ads, Email, YouTube</div>
+      <span class="hcc">11 chats · 6 hubs</span>
+    </div>
+    <div class="hc" onclick="tab('tech',document.querySelectorAll('.tab')[3])">
+      <div class="hci">⚡</div><div class="hct">Tech Builds</div>
+      <div class="hcd">AI Agents, Apps, Software Comparison, Landing Pages</div>
+      <span class="hcc">5+ chats · 9 hubs</span>
+    </div>
+    <div class="hc" onclick="tab('creative',document.querySelectorAll('.tab')[4])">
+      <div class="hci">🎨</div><div class="hct">Creative</div>
+      <div class="hcd">Design Mastery, Tone &amp; Voice, eBook, Video Storyboard</div>
+      <span class="hcc">7 chats · 4 hubs</span>
+    </div>
+    <div class="hc" onclick="tab('personal',document.querySelectorAll('.tab')[5])">
+      <div class="hci">🧘</div><div class="hct">Personal</div>
+      <div class="hcd">GLP-1, Fitness, Skin, ADD/ADHD, Brain Health, Travel</div>
+      <span class="hcc">4+ chats · 9 hubs</span>
+    </div>
+    <div class="hc" onclick="nav('second-spring-brain-fog')">
+      <div class="hci">🧠</div><div class="hct">Brain Fog Campaign</div>
+      <div class="hcd">180-post LinkedIn content library for menopause brain fog</div>
+      <span class="hcc">Featured · 6 months</span>
+    </div>
+    <div class="hc" onclick="nav('copywriting-lucero')">
+      <div class="hci">📖</div><div class="hct">Brandon Lucero Playbook</div>
+      <div class="hcd">Conversion psychology framework from full workshop transcript</div>
+      <span class="hcc">Featured · Full content</span>
+    </div>
+    <div class="hc" onclick="nav('fgs')">
+      <div class="hci">💎</div><div class="hct">Family Gift Studio</div>
+      <div class="hcd">Jewelry eCommerce brand — 491K monthly keyword volume</div>
+      <span class="hcc">20 chats</span>
+    </div>
+  </div>
+
+  <div style="margin-top:28px">
+    <div class="tw">
+      <table>
+        <thead><tr><th>Metric</th><th>Count</th></tr></thead>
+        <tbody>
+          <tr><td>Total Hubs</td><td><strong>46</strong></td></tr>
+          <tr><td>Extracted Chats</td><td><strong>73+</strong></td></tr>
+          <tr><td>Active Projects</td><td><strong>22</strong></td></tr>
+          <tr><td>Empty Hubs</td><td><strong>24</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
 
+<!-- ══ BUSINESS OVERVIEW ══ -->
+<div class="pg" id="pg-business">
+  <div class="ph">
+    <div class="pbc">Home <span>›</span> Business</div>
+    <h1 class="ptitle">💼 Business</h1>
+    <p class="pdesc">41 Genspark chats across 7 business hubs</p>
+  </div>
+  <div class="info">This category contains <strong>41 chats</strong> covering eCommerce, wellness, product development, and business strategy across 7 active project hubs.</div>
+  <div class="cg">
+    <div class="cc" onclick="nav('fgs')"><div class="ci">💎</div><div class="ct">Family Gift Studio</div><div class="cd">20 chats — Jewelry eCommerce with mentalism marketing and collection strategy</div></div>
+    <div class="cc" onclick="nav('second-spring')"><div class="ci">🌸</div><div class="ct">Second Spring</div><div class="cd">9 chats — Menopause wellness brand with enterprise positioning and $1.7M projection</div></div>
+    <div class="cc" onclick="nav('product-ideas')"><div class="ci">💡</div><div class="ct">Product Ideas</div><div class="cd">6 chats — Authority OS, digital products, and business concepts</div></div>
+    <div class="cc" onclick="nav('mission-org')"><div class="ci">🎯</div><div class="ct">Mission Organization</div><div class="cd">Strategic initiatives and organizational structure</div></div>
+    <div class="cc" onclick="nav('insight-profit')"><div class="ci">📈</div><div class="ct">Insight Profit</div><div class="cd">Business analytics and profit optimization</div></div>
+    <div class="cc" onclick="nav('ftk')"><div class="ci">⚡</div><div class="ct">FTK</div><div class="cd">Special projects and cross-functional initiatives</div></div>
+  </div>
+</div>
+
+<!-- ══ FGS ══ -->
+<div class="pg" id="pg-fgs">
+  <div class="ph">
+    <div class="pbc">Business <span>›</span> Family Gift Studio</div>
+    <h1 class="ptitle">💎 Family Gift Studio (FGS)</h1>
+    <p class="pdesc">20 Genspark chats for the FGS jewelry and personalized gifts eCommerce brand</p>
+    <div class="pmeta"><span class="tg">eCommerce</span><span class="tg">Shopify</span><span class="tg">Jewelry</span><span class="tg blue">20 chats</span></div>
+  </div>
+  <div class="info"><strong>20 chats</strong> covering branding, Shopify collections, marketing psychology, customer profiles, and eCommerce analytics.</div>
+
+  <div class="sec" id="s-fgs-1">
+    <div class="sch" onclick="tog('s-fgs-1')">
+      <div class="stitle">Shopify Collection Strategy</div>
+      <div class="sacts"><button class="abt" onclick="cp(event,'s-fgs-1')">📋 Copy</button><span class="sci">▾</span></div>
+    </div>
+    <div class="sb2">
+      <p>7 optimized collection pages targeting <strong>491,900 monthly searches</strong>:</p>
+      <div class="tw"><table>
+        <thead><tr><th>Collection</th><th>Monthly Searches</th><th>Handle</th></tr></thead>
+        <tbody>
+          <tr><td><span class="badge p1">Gifts for Mom</span></td><td><strong>135,000</strong></td><td>/collections/gifts-for-mom</td></tr>
+          <tr><td><span class="badge p2">Gifts for Daughter</span></td><td><strong>90,500</strong></td><td>/collections/gifts-for-daughter</td></tr>
+          <tr><td><span class="badge p3">Gifts for Dad</span></td><td><strong>74,000</strong></td><td>/collections/gifts-for-dad</td></tr>
+          <tr><td><span class="badge p4">Gifts for Grandma</span></td><td><strong>60,500</strong></td><td>/collections/grandma-gifts</td></tr>
+          <tr><td><span class="badge p5">Personalized Jewelry</span></td><td><strong>49,500</strong></td><td>/collections/personalized-jewelry</td></tr>
+          <tr><td><span class="badge p1">Mother Daughter Gifts</span></td><td><strong>33,100</strong></td><td>/collections/mother-daughter-gifts</td></tr>
+          <tr><td><span class="badge p3">Gifts for Son</span></td><td><strong>22,200</strong></td><td>/collections/gifts-for-son</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <div class="sec" id="s-fgs-2">
+    <div class="sch" onclick="tog('s-fgs-2')">
+      <div class="stitle">Chat Index</div>
+      <div class="sacts"><button class="abt" onclick="cp(event,'s-fgs-2')">📋 Copy</button><span class="sci">▾</span></div>
+    </div>
+    <div class="sb2">
+      <div class="acc">
+        <div class="ach" onclick="togAcc(this)">Branding &amp; Identity (7 chats) <span class="ach-ico">▾</span></div>
+        <div class="acb"><ul><li>Brand Guidelines Document 2025</li><li>Brand Identity Guidelines 2025</li><li>Comprehensive Branding Overhaul 2025</li><li>Comprehensive Brand Resource Vault</li><li>Love Knot M Logo Design Vectorization</li><li>Contrast Visibility Fix</li><li>Diverse Lifestyle Hero Images</li></ul></div>
+        <div class="ach" onclick="togAcc(this)">Products &amp; Collections (5 chats) <span class="ach-ico">▾</span></div>
+        <div class="acb"><ul><li>Grandmother Collection Evergreen Concepts</li><li>Collection Images Design</li><li>Profitable POD Jewelry Bundle Collections</li><li>Royal Hearts Card Design</li><li>Message Card POD Product Ideas</li></ul></div>
+        <div class="ach" onclick="togAcc(this)">Marketing &amp; Psychology (3 chats) <span class="ach-ico">▾</span></div>
+        <div class="acb"><ul><li>Jewelry Marketing Mentalism System</li><li>Mentalism Marketing Psychological Influence</li><li>Mentalism Marketing Persuasion Techniques</li></ul></div>
+        <div class="ach" onclick="togAcc(this)">Operations &amp; Analytics (5 chats) <span class="ach-ico">▾</span></div>
+        <div class="acb"><ul><li>Lars LPG eCommerce Conversion Optimization</li><li>Triple Whale Analytics Setup Guide</li><li>Comprehensive Customer Service Playbook</li><li>150 Holiday Gaming Customer Profiles</li><li>xClaude Agentic Code Skill</li></ul></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SECOND SPRING ══ -->
+<div class="pg" id="pg-second-spring">
+  <div class="ph">
+    <div class="pbc">Business <span>›</span> Second Spring</div>
+    <h1 class="ptitle">🌸 Second Spring</h1>
+    <p class="pdesc">9 Genspark chats for menopause wellness brand with enterprise positioning</p>
+    <div class="pmeta"><span class="tg">Wellness</span><span class="tg">B2B</span><span class="tg">Menopause</span><span class="tg blue">9 chats</span></div>
+  </div>
+  <div class="info"><strong>9 chats</strong> covering SEO strategy, content marketing, enterprise positioning, credentialing, and campaign development for the menopause wellness market.</div>
+  <div class="sec" id="s-ss-pos">
+    <div class="sch" onclick="tog('s-ss-pos')"><div class="stitle">Market Position</div><div class="sacts"><button class="abt" onclick="cp(event,'s-ss-pos')">📋 Copy</button><span class="sci">▾</span></div></div>
+    <div class="sb2">
+      <p><strong>Second Spring</strong> is positioned as a menopause wellness brand with enterprise expansion potential and significant revenue projections.</p>
+      <div class="tw"><table>
+        <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+        <tbody>
+          <tr><td>Revenue Projection</td><td><strong>$1.7M</strong></td></tr>
+          <tr><td>Target Audience</td><td>Women in menopause transition</td></tr>
+          <tr><td>Market Size</td><td>Rapidly growing wellness vertical</td></tr>
+          <tr><td>Strategic Focus</td><td>Enterprise partnerships and B2B</td></tr>
+        </tbody>
+      </table></div>
+      <div class="cg" style="grid-template-columns:repeat(auto-fit,minmax(160px,1fr))">
+        <div class="cc" onclick="nav('second-spring-seo')"><div class="ci">🔍</div><div class="ct">SEO Strategy</div><div class="cd">Keyword targeting for menopause wellness</div></div>
+        <div class="cc" onclick="nav('second-spring-content')"><div class="ci">✍️</div><div class="ct">Content Marketing</div><div class="cd">7-figure content framework</div></div>
+        <div class="cc" onclick="nav('second-spring-enterprise')"><div class="ci">🏢</div><div class="ct">Enterprise Offers</div><div class="cd">$50K–$500K B2B tiers</div></div>
+        <div class="cc" onclick="nav('second-spring-brain-fog')"><div class="ci">🧠</div><div class="ct">Brain Fog Campaign</div><div class="cd">180-post LinkedIn campaign</div></div>
+        <div class="cc" onclick="nav('second-spring-cred')"><div class="ci">🎓</div><div class="ct">Credentialing</div><div class="cd">24-month authority roadmap</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ BRAIN FOG CAMPAIGN ══ -->
+<div class="pg" id="pg-second-spring-brain-fog">
+  <div class="ph">
+    <div class="pbc">Business <span>›</span> Second Spring <span>›</span> Brain Fog Campaign</div>
+    <h1 class="ptitle">🧠 Brain Fog Campaign</h1>
+    <p class="pdesc">LinkedIn campaign targeting menopause brain fog — 180 posts, full content library</p>
+    <div class="pmeta"><span class="tg">LinkedIn</span><span class="tg">180 Posts</span><span class="tg">6 Months</span><span class="tg blue">Second Spring</span></div>
+  </div>
+  <div class="info">Extracted from the <strong>Brain Fog LinkedIn Campaign</strong> chat. A complete 180-post LinkedIn content library targeting menopause brain fog.</div>
+
+  <div class="sec" id="s-bf-ov">
+    <div class="sch" onclick="tog('s-bf-ov')"><div class="stitle">Campaign Overview</div><div class="sacts"><button class="abt" onclick="cp(event,'s-bf-ov')">📋 Copy</button><button class="abt" onclick="pr(event,'s-bf-ov')">⬇ PDF</button><span class="sci">▾</span></div></div>
+    <div class="sb2">
+      <p>LinkedIn-first content initiative addressing one of menopause's most professionally disruptive symptoms — cognitive fog. Targets professional women (35–55) who are high-performers experiencing unexplained cognitive decline.</p>
+      <div class="sg">
+        <div class="sc"><div class="sn">180</div><div class="sl">LinkedIn Posts</div></div>
+        <div class="sc"><div class="sn">6</div><div class="sl">Month Duration</div></div>
+        <div class="sc"><div class="sn">30</div><div class="sl">Posts/Month</div></div>
+        <div class="sc"><div class="sn">35–55</div><div class="sl">Target Age</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec" id="s-bf-why">
+    <div class="sch" onclick="tog('s-bf-why')"><div class="stitle">Why Brain Fog for LinkedIn?</div><div class="sacts"><button class="abt" onclick="cp(event,'s-bf-why')">📋 Copy</button><span class="sci">▾</span></div></div>
+    <div class="sb2">
+      <ul>
+        <li>Professional women are often ashamed of cognitive symptoms at work</li>
+        <li>LinkedIn audiences are high-intent and receptive to wellness in professional contexts</li>
+        <li>Brain fog bridges <strong>personal health → workplace productivity → enterprise wellness</strong></li>
+        <li>Natural upsell path to Second Spring's enterprise corporate wellness offering</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sec" id="s-bf-pillars">
+    <div class="sch" onclick="tog('s-bf-pillars')"><div class="stitle">Content Pillars — 180 Posts Breakdown</div><div class="sacts"><button class="abt" onclick="cp(event,'s-bf-pillars')">📋 Copy</button><button class="abt" onclick="pr(event,'s-bf-pillars')">⬇ PDF</button><span class="sci">▾</span></div></div>
+    <div class="sb2">
+      <div class="tw"><table>
+        <thead><tr><th>Pillar</th><th>Posts</th><th>%</th><th>Purpose</th></tr></thead>
+        <tbody>
+          <tr><td><span class="badge p1">Education &amp; Awareness</span></td><td><strong>54</strong></td><td>30%</td><td>Build problem recognition</td></tr>
+          <tr><td><span class="badge p2">Personal Stories &amp; Validation</span></td><td><strong>36</strong></td><td>20%</td><td>Create emotional connection</td></tr>
+          <tr><td><span class="badge p3">Science &amp; Research</span></td><td><strong>27</strong></td><td>15%</td><td>Build credibility (E-E-A-T)</td></tr>
+          <tr><td><span class="badge p4">Solutions &amp; Tips</span></td><td><strong>36</strong></td><td>20%</td><td>Provide value, drive traffic</td></tr>
+          <tr><td><span class="badge p5">Community &amp; Conversation</span></td><td><strong>27</strong></td><td>15%</td><td>Engagement and social proof</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <div class="sec" id="s-bf-fmt">
+    <div class="sch" onclick="tog('s-bf-fmt')"><div class="stitle">Post Format Mix</div><div class="sacts"><button class="abt" onclick="cp(event,'s-bf-fmt')">📋 Copy</button><span class="sci">▾</span></div></div>
+    <div class="sb2">
+      <div class="fg">
+        <div class="fc"><div class="fp">40%</div><div><div class="fn">📝 Text Posts</div><div class="fd">Personal narratives, hot takes, statistics</div></div></div>
+        <div class="fc"><div class="fp">30%</div><div><div class="fn">🎠 Carousels</div><div class="fd">"5 signs of menopause brain fog" style</div></div></div>
+        <div class="fc"><div class="fp">20%</div><div><div class="fn">🎥 Video</div><div class="fd">Talking head, expert interviews, testimonials</div></div></div>
+        <div class="fc"><div class="fp">10%</div><div><div class="fn">📊 Polls</div><div class="fd">Engagement drivers, research collection</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec" id="s-bf-tmpl">
+    <div class="sch" onclick="tog('s-bf-tmpl')"><div class="stitle">Sample Post Templates</div><div class="sacts"><button class="abt" onclick="cp(event,'s-bf-tmpl')">📋 Copy</button><span class="sci">▾</span></div></div>
+    <div class="sb2">
+      <div class="h3"><span class="h3n">A</span> Awareness Post</div>
+      <blockquote>I thought I was getting early Alzheimer's. Turns out, I was 47 and in perimenopause. Brain fog isn't weakness. It's biology. And it's fixable. Here's what helped me: [list]</blockquote>
+      <div class="h3"><span class="h3n">B</span> Corporate Angle Post</div>
+      <blockquote>Your highest-performing women aren't burning out. They're going through menopause. And most companies have no idea — or no solution. Second Spring's corporate wellness program changes that.</blockquote>
+    </div>
+  </div>
+
+  <div class="sec" id="s-bf-kpi">
+    <div class="sch" onclick="tog('s-bf-kpi')"><div class="stitle">Campaign KPIs</div><div class="sacts"><button class="abt" onclick="cp(event,'s-bf-kpi')">📋 Copy</button><span class="sci">▾</span></div></div>
+    <div class="sb2">
+      <ul class="cl2">
+        <li class="ci2"><span class="cd2"></span><span><strong>LinkedIn follower growth:</strong> +2,000/month</span></li>
+        <li class="ci2"><span class="cd2"></span><span><strong>Post impressions:</strong> 500K/month by month 3</span></li>
+        <li class="ci2"><span class="cd2"></span><span><strong>Lead gen (enterprise):</strong> 10–20/month from corporate angle posts</span></li>
+        <li class="ci2"><span class="cd2"></span><span><strong>Email signups from LinkedIn:</strong> 500/month</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SEO STRATEGY ══ -->
+<div class="pg" id="pg-second-spring-seo">
+  <div class="ph">
+    <div class="pbc">Business <span>›</span> Second Spring <span>›</span> SEO Strategy</div>
+    <h1 class="ptitle">🔍 SEO Strategy</h1>
+    <p class="pdesc">Search engine optimization masterplan and keyword targeting for Second Spring menopause wellness</p>
+  </div>
+  <div class="info">From the <strong>SEO Masterplan</strong> chat. Comprehensive search strategy for the menopause wellness vertical.</div>
+
+  <div class="sec" id="s-seo-kw">
+    <div class="sch" onclick="tog('s-seo-kw')"><div class="stitle">Keyword Strategy</div><div class="sacts"><button class="abt" onclick="cp(event,'s-seo-kw')">📋 Copy</button><button class="abt" onclick="pr(event,'s-seo-kw')">⬇ PDF</button><span class="sci">▾</span></div></div>
+    <div class="sb2">
+      <div class="h3"><span class="h3n">1</span> Tier 1 — Core Commercial Keywords</div>
+      <div class="tw"><table>
+        <thead><tr><th>Keyword</th><th>Est. Monthly Volume</th><th>Difficulty</th><th>Intent</th></tr></thead>
+        <tbody>
+          <tr><td>menopause supplements</td><td><span class="badge p1">High</span></td><td>Medium</td><td>Commercial</td></tr>
+          <tr><td>menopause weight loss</td><td><span class="badge p1">High</span></td><td>Medium</td><td>Informational → Commercial</td></tr>
+          <tr><td>brain fog menopause</td><td><span class="badge p4">Medium</span></td><td>Low</td><td>Informational</td></tr>
+          <tr><td>HRT alternatives natural</td><td><span class="badge p4">Medium</span></td><td>Low</td><td>Commercial</td></tr>
+          <tr><td>perimenopause symptoms</td><td><span class="badge p1">High</span></td><td>High</td><td>Informational</td></tr>
+        </tbody>
+      </table></div>
+      <div class="h3"><span class="h3n">2</span> Tier 2 — Long-Tail &amp; Symptom Keywords</div>
+      <ul>
+        <li>"why do I feel foggy during menopause"</li>
+        <li>"best supplements for menopause hot flashes"</li>
+        <li>"perimenopause anxiety natural remedies"</li>
+        <li>"menopause sleep problems solutions"</li>
+      </ul>
+      <div class="h3"><span class="h3n">3</span> Tier 3 — Authority/Credentialing Keywords</div>
+      <ul>
+        <li>"menopause specialist [city]"</li>
+        <li>"certified menopause coach"</li>
+        <li>"corporate menopause wellness program"</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sec" id="s-seo-arch">
+    <div class="sch" onclick="tog('s-seo-arch')"><div class="stitle">Content Cluster Architecture</div><div class="sacts"><button class="abt" onclick="cp(event,'s-seo-arch')">📋 Copy</button><span class="sci">▾</span></div></div>
+    <div class="sb2">
+      <div class="code">/menopause (pillar)
+  /menopause/brain-fog
+  /menopause/sleep
+  /menopause/weight-gain
+  /menopause/hot-flashes
+  /menopause/mood-changes
+  /menopause/supplements (commercial)
+  /menopause/hrt-vs-natural (comparison)</div>
+    </div>
+  </div>
+
+  <div class="sec" id="s-seo-tech">
+    <div class="sch" onclick="tog('s-seo-tech')"><div class="stitle">Technical SEO Priorities</div><div class="sacts"><button class="abt" onclick="cp(event,'s-seo-tech')">📋 Copy</button><span class="sci">▾</span></div></div>
+    <div class="sb2">
+      <ol>
+        <li>Core Web Vitals optimization (LCP &lt; 2.5s)</li>
+        <li>Schema markup: MedicalCondition, FAQPage, Product</li>
+        <li>Mobile-first indexing compliance</li>
+        <li>Internal linking from symptom pages → product/service pages</li>
+        <li>E-E-A-T signals: author credentials, citations, medical review badges</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- ══ CONTENT MARKETING ══ -->
+<div class="pg" id="pg-second-spring-content">
+  <div class="ph">
+    <div class="pbc">Business <span>›</span> Second Spring <span>›</span> Content Marketing</div>
+    <h1 class="ptitle">✍️ Content Marketing</h1>
+    <p class="pdesc">Content marketing roadmap and 7-figure content strategy for Second Spring</p>
+  </div>
+  <div class="info">From the <strong>Content Marketing Roadmap</strong> and <strong>7-Figure Content Strategy</strong> chats.</div>
+
+  <div class="sec" id="s-cm-phases">
+    <div class="sch" onclick="tog('s-cm-phases')"><div class="stitle">The 7-Figure Content Framework</div><div class="sacts"><button class="abt" onclick="cp(event,'s-cm-phases')">📋 Copy</button><button class="abt" onclick="pr(event,'s-cm-phases')">⬇ PDF</button><span class="sci">▾</span></div></div>
+    <div class="sb2">
+      <div class="steps">
+        <div class="step"><div class="stpn">1</div><div class="stpc"><div class="stpt">Authority Foundation (Months 1–3)</div><div class="stpd">30 cornerstone articles, 10 Ultimate Guide pillar pages, expert interview series, Podcast launch: <em>Second Spring</em></div></div></div>
+        <div class="step"><div class="stpn">2</div><div class="stpc"><div class="stpt">Community &amp; Email Growth (Months 4–6)</div><div class="stpd">Lead magnet "Menopause Relief Starter Kit", email list target 10K by month 6, Second Spring Circle community</div></div></div>
+        <div class="step"><div class="stpn">3</div><div class="stpc"><div class="stpt">Content-to-Commerce (Months 7–12)</div><div class="stpd">Product-integrated content, case studies, affiliate partner content. Revenue target: $1.7M ARR by month 12</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec" id="s-cm-cal">
+    <div class="sch" onclick="tog('s-cm-cal')"><div class="stitle">Editorial Calendar Structure</div><div class="sacts"><button class="abt" onclick="cp(event,'s-cm-cal')">📋 Copy</button><span class="sci">▾</span></div></div>
+    <div class="sb2">
+      <div class="tw"><table>
+        <thead><tr><th>Content Type</th><th>Frequency</th><th>Platform</th><th>Goal</th></tr></thead>
+        <tbody>
+          <tr><td><span class="badge p1">SEO Blog Posts</span></td><td>4/week</td><td>Website</td><td>Organic traffic</td></tr>
+          <tr><td><span class="badge p3">Email Newsletter</span></td><td>Weekly</td><td>Email</td><td>Nurture + retention</td></tr>
+          <tr><td><span class="badge p4">Podcast Episodes</span></td><td>Weekly</td><td>Spotify/Apple</td><td>Authority + reach</td></tr>
+          <tr><td><span class="badge p2">LinkedIn</span></td><td>5/week</td><td>LinkedIn</td><td>B2B/enterprise</td></tr>
+          <tr><td><span class="badge p5">Short-form Video</span></td><td>3/week</td><td>TikTok/Reels</td><td>Top-of-funnel</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ ENTERPRISE OFFERS ══ -->
+<div class="pg" id="pg-second-spring-enterprise">
+  <div class="ph">
+    <div class="pbc">Business <span>›</span> Second Spring <span>›</span> Enterprise Offers</div>
+    <h1 class="ptitle">🏢 Enterprise Offers</h1>
+    <p class="pdesc">B2B enterprise positioning and corporate wellness programs from $50K to $500K</p>
+    <div class="pmeta"><span class="tg">B2B</span><span class="tg">$50K–$500K</span><span class="tg blue">Enterprise</span></div>
+  </div>
+  <div class="info">From the <strong>Enterprise B2B Offers</strong> chat. Full enterprise offer stack with pricing tiers.</div>
+
+  <div class="sec" id="s-ent-opp">
+    <div class="sch" onclick="tog('s-ent-opp')"><div class="stitle">Market Opportunity</div><div class="sacts"><button class="abt" onclick="cp(event,'s-ent-opp')">📋 Copy</button><span class="sci">▾</span></div></div>
+    <div class="sb2">
+      <ul class="cl2">
+        <li class="ci2"><span class="cd2"></span><span>1 in 4 women considers leaving work due to menopause symptoms</span></li>
+        <li class="ci2"><span class="cd2"></span><span>Fortune 500 companies lose ~<strong>$1.8B/year</strong> in lost productivity from menopause-related absenteeism</span></li>
+        <li class="ci2"><span class="cd2"></span><span>Less than <strong>5%</strong> of US corporations have a formal menopause workplace policy</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sec" id="s-ent-tiers">
+    <div class="sch" onclick="tog('s-ent-tiers')"><div class="stitle">Enterprise Offer Stack</div><div class="sacts"><button class="abt" onclick="cp(event,'s-ent-tiers')">📋 Copy</button><button class="abt" onclick="pr(event,'s-ent-tiers')">⬇ PDF</button><span class="sci">▾</span></div></div>
+    <div class="sb2">
+      <div class="steps">
+        <div class="step"><div class="stpn" style="background:#10B981">T1</div><div class="stpc"><div class="stpt">Awareness Package — $50K</div><div class="stpd">Lunch &amp; learn workshop · Employee wellness guide · Manager training · 90-day email series · Analytics report</div></div></div>
+        <div class="step"><div class="stpn" style="background:#3B82F6">T2</div><div class="stpc"><div class="stpt">Wellness Integration — $150K</div><div class="stpd">Everything in T1 + quarterly workshops · App access for all employees · 20 coaching credits · HR policy consulting · Custom intranet hub</div></div></div>
+        <div class="step"><div class="stpn" style="background:#8B5CF6">T3</div><div class="stpc"><div class="stpt">Strategic Partnership — $500K/year</div><div class="stpd">Everything in T1 &amp; T2 + Dedicated CSM · Annual wellness audit · Conference speaking · White-label content · ROI reporting · Co-marketing</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec" id="s-ent-verts">
+    <div class="sch" onclick="tog('s-ent-verts')"><div class="stitle">Target Enterprise Verticals</div><div class="sacts"><button class="abt" onclick="cp(event,'s-ent-verts')">📋 Copy</button><span class="sci">▾</span></div></div>
+    <div class="sb2">
+      <div class="tw"><table>
+        <thead><tr><th>Vertical</th><th>Why They Buy</th><th>Key Decision Maker</th></tr></thead>
+        <tbody>
+          <tr><td><span class="badge p1">Healthcare</span></td><td>Leading by example</td><td>Chief People Officer</td></tr>
+          <tr><td><span class="badge p3">Financial Services</span></td><td>High-performing female workforce</td><td>HR Director</td></tr>
+          <tr><td><span class="badge p2">Legal Firms</span></td><td>Female partnership pipeline</td><td>Managing Partner</td></tr>
+          <tr><td><span class="badge p4">Tech Companies</span></td><td>Inclusive culture initiatives</td><td>DEI Officer</td></tr>
+          <tr><td><span class="badge p5">Retail/Hospitality</span></td><td>Large female hourly workforce</td><td>VP People &amp; Culture</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ CREDENTIALING ══ -->
+<div class="pg" id="pg-second-spring-cred">
+  <div class="ph">
+    <div class="pbc">Business <span>›</span> Second Spring <span>›</span> Credentialing</div>
+    <h1 class="ptitle">🎓 Credentialing</h1>
+    <p class="pdesc">24-month authority-building and professional credentialing pathway for Second Spring</p>
+  </div>
+  <div class="info">From the <strong>24-Month Credentialing Pathway</strong> chat. Full credentialing roadmap for establishing medical authority in menopause wellness.</div>
+
+  <div class="sec" id="s-cr-road">
+    <div class="sch" onclick="tog('s-cr-road')"><div class="stitle">24-Month Credentialing Roadmap</div><div class="sacts"><button class="abt" onclick="cp(event,'s-cr-road')">📋 Copy</button><button class="abt" onclick="pr(event,'s-cr-road')">⬇ PDF</button><span class="sci">▾</span></div></div>
+    <div class="sb2">
+      <div class="h3"><span class="h3n">1</span> Months 1–6: Foundation Credentials</div>
+      <ul class="chk">
+        <li class="chi"><div class="chb" onclick="tck(this)"></div><span>Institute for Integrative Nutrition (IIN) — Health Coaching Certification</span></li>
+        <li class="chi"><div class="chb" onclick="tck(this)"></div><span>North American Menopause Society (NAMS) — Menopause Practitioner Certification</span></li>
+        <li class="chi"><div class="chb" onclick="tck(this)"></div><span>First Aid/CPR/AED</span></li>
+        <li class="chi"><div class="chb" onclick="tck(this)"></div><span>Business entity formation for professional practice</span></li>
+      </ul>
+      <div class="h3"><span class="h3n">2</span> Months 7–12: Specialization</div>
+      <ul class="chk">
+        <li class="chi"><div class="chb" onclick="tck(this)"></div><span>Functional Medicine Coaching Academy (FMCA) Certification</span></li>
+        <li class="chi"><div class="chb" onclick="tck(this)"></div><span>NAMS Menopause Practitioner exam</span></li>
+        <li class="chi"><div class="chb" onclick="tck(this)"></div><span>100 documented client coaching hours</span></li>
+        <li class="chi"><div class="chb" onclick="tck(this)"></div><span>Publish 3 guest articles in peer-reviewed or high-authority health publications</span></li>
+      </ul>
+      <div class="h3"><span class="h3n">3</span> Months 13–18: Authority Building</div>
+      <ul class="chk">
+        <li class="chi"><div class="chb" onclick="tck(this)"></div><span>Advisory board formation (invite 2–3 MDs/DOs as advisors)</span></li>
+        <li class="chi"><div class="chb" onclick="tck(this)"></div><span>Launch Second Spring Certification Program (train other coaches)</span></li>
+        <li class="chi"><div class="chb" onclick="tck(this)"></div><span>Speak at 2+ medical or HR conferences</span></li>
+        <li class="chi"><div class="chb" onclick="tck(this)"></div><span>Submit research collaboration proposal to a university wellness department</span></li>
+      </ul>
+      <div class="h3"><span class="h3n">4</span> Months 19–24: Enterprise-Ready</div>
+      <ul class="chk">
+        <li class="chi"><div class="chb" onclick="tck(this)"></div><span>ISO or similar quality management certification for programs</span></li>
+        <li class="chi"><div class="chb" onclick="tck(this)"></div><span>Complete 250+ client hours with documented outcomes</span></li>
+        <li class="chi"><div class="chb" onclick="tck(this)"></div><span>Publish case studies co-authored with medical advisors</span></li>
+        <li class="chi"><div class="chb" onclick="tck(this)"></div><span>Formal enterprise partnership agreements with 2+ pilot corporations</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sec" id="s-cr-matrix">
+    <div class="sch" onclick="tog('s-cr-matrix')"><div class="stitle">Credential Matrix by Offer Tier</div><div class="sacts"><button class="abt" onclick="cp(event,'s-cr-matrix')">📋 Copy</button><span class="sci">▾</span></div></div>
+    <div class="sb2">
+      <div class="tw"><table>
+        <thead><tr><th>Credential</th><th>Required For</th></tr></thead>
+        <tbody>
+          <tr><td>NAMS Certification</td><td>Any health claims in marketing</td></tr>
+          <tr><td>Medical Advisory Board</td><td>Tier 2 &amp; 3 enterprise offers</td></tr>
+          <tr><td>Published research</td><td>Speaking at medical conferences</td></tr>
+          <tr><td>Client outcome data</td><td>ROI reporting for enterprise</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ BRANDON LUCERO PLAYBOOK ══ -->
+<div class="pg" id="pg-copywriting-lucero">
+  <div class="ph">
+    <div class="pbc">Marketing <span>›</span> Copywriting <span>›</span> Brandon Lucero Playbook</div>
+    <h1 class="ptitle">📖 Brandon Lucero Playbook</h1>
+    <p class="pdesc">Complete conversion psychology framework and persuasion techniques from the full workshop transcript</p>
+    <div class="pmeta"><span class="tg">Conversion Psychology</span><span class="tg">Copywriting</span><span class="tg">Demand Gen</span><span class="tg blue">Marketing</span></div>
+  </div>
+  <div class="info">Extracted from the <strong>Brandon Lucero Playbook</strong> chat — a full workshop transcript covering conversion psychology, demand generation, and persuasion systems.</div>
+
+  <div class="sec" id="s-bl-fw">
+    <div class="sch" onclick="tog('s-bl-fw')"><div class="stitle">Core Framework: Conversion Psychology System</div><div class="sacts"><button class="abt" onclick="cp(event,'s-bl-fw')">📋 Copy</button><button class="abt" onclick="pr(event,'s-bl-fw')">⬇ PDF</button><span class="sci">▾</span></div></div>
+    <div class="sb2">
+      <div class="h3"><span class="h3n">1</span> The Thought Reversal Method</div>
+      <p>Most marketing fights against objections. Lucero's approach <strong>reverses the thought pattern entirely</strong> — prospects come to the desired conclusion themselves.</p>
+      <div class="steps">
+        <div class="step"><div class="stpn">1</div><div class="stpc"><div class="stpt">Identify the Blocking Belief</div><div class="stpd">Find the core belief that prevents the sale</div></div></div>
+        <div class="step"><div class="stpn">2</div><div class="stpc"><div class="stpt">Challenge the Root Assumption</div><div class="stpd">Target the underlying assumption — not the surface objection</div></div></div>
+        <div class="step"><div class="stpn">3</div><div class="stpc"><div class="stpt">Organic Belief Discovery</div><div class="stpd">Let the prospect discover the new belief organically through your content</div></div></div>
+        <div class="step"><div class="stpn">4</div><div class="stpc"><div class="stpt">Pre-Sale Conversion</div><div class="stpd">The conversion happens before the offer is even made</div></div></div>
+      </div>
+
+      <div class="h3"><span class="h3n">2</span> The Demand Hook Engine</div>
+      <div class="steps">
+        <div class="step"><div class="stpn">①</div><div class="stpc"><div class="stpt">Agitate</div><div class="stpd">Surface an existing frustration or desire the prospect already has</div></div></div>
+        <div class="step"><div class="stpn">②</div><div class="stpc"><div class="stpt">Reframe</div><div class="stpd">Present a surprising or counter-intuitive paradigm shift</div></div></div>
+        <div class="step"><div class="stpn">③</div><div class="stpc"><div class="stpt">Position</div><div class="stpd">Your product becomes the natural solution within the new frame</div></div></div>
+      </div>
+
+      <div class="h3"><span class="h3n">3</span> Content That Converts (Not Just Engages)</div>
+      <div class="tw"><table>
+        <thead><tr><th>Content Type</th><th>What It Does</th><th>Outcome</th></tr></thead>
+        <tbody>
+          <tr><td><span class="badge p3">Engagement Content</span></td><td>Gets likes, shares, comments</td><td>Audience growth, visibility</td></tr>
+          <tr><td><span class="badge p1">Conversion Content</span></td><td>Changes beliefs, creates buyers</td><td>Revenue, customers</td></tr>
+        </tbody>
+      </table></div>
+      <p>The key: <strong>conversion content must shift <em>identity</em>, not just deliver information.</strong></p>
+    </div>
+  </div>
+
+  <div class="sec" id="s-bl-quotes">
+    <div class="sch" onclick="tog('s-bl-quotes')"><div class="stitle">Workshop Key Takeaways</div><div class="sacts"><button class="abt" onclick="cp(event,'s-bl-quotes')">📋 Copy</button><button class="abt" onclick="pr(event,'s-bl-quotes')">⬇ PDF</button><span class="sci">▾</span></div></div>
+    <div class="sb2">
+      <div class="ql"><div class="qt">People don't buy products. They buy the version of themselves they believe they'll become.</div><div class="qlb">On Messaging</div></div>
+      <div class="ql"><div class="qt">Stop creating content to educate. Start creating content to change beliefs. Those are very different jobs.</div><div class="qlb">On Content Strategy</div></div>
+      <div class="ql"><div class="qt">The objection you're trying to overcome in your close is the belief you failed to shift in your content.</div><div class="qlb">On Objections</div></div>
+    </div>
+  </div>
+
+  <div class="sec" id="s-bl-chk">
+    <div class="sch" onclick="tog('s-bl-chk')"><div class="stitle">Implementation Checklist</div><div class="sacts"><button class="abt" onclick="cp(event,'s-bl-chk')">📋 Copy</button><span class="sci">▾</span></div></div>
+    <div class="sb2">
+      <ul class="chk">
+        <li class="chi"><div class="chb" onclick="tck(this)"></div><span>Audit current content: is it educational or belief-shifting?</span></li>
+        <li class="chi"><div class="chb" onclick="tck(this)"></div><span>Map the 3 core objections for each offer</span></li>
+        <li class="chi"><div class="chb" onclick="tck(this)"></div><span>For each objection, create a Thought Reversal piece of content</span></li>
+        <li class="chi"><div class="chb" onclick="tck(this)"></div><span>Build a Demand Hook Engine content sequence (7–14 pieces)</span></li>
+        <li class="chi"><div class="chb" onclick="tck(this)"></div><span>A/B test conversion content vs. standard educational content</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sec" id="s-bl-tools">
+    <div class="sch" onclick="tog('s-bl-tools')"><div class="stitle">Nested AI Tools</div><div class="sacts"><button class="abt" onclick="cp(event,'s-bl-tools')">📋 Copy</button><span class="sci">▾</span></div></div>
+    <div class="sb2">
+      <div class="cg">
+        <div class="cc"><div class="ci">🔥</div><div class="ct">Demand Hook Engine</div><div class="cd">AI-powered tool for generating demand hooks from your offer's core transformation</div></div>
+        <div class="cc"><div class="ci">🔄</div><div class="ct">Thought Reversal Bot</div><div class="cd">Generates content that reverses objection-causing beliefs before the sale</div></div>
+        <div class="cc"><div class="ci">💬</div><div class="ct">Conversion Messaging Bot</div><div class="cd">Creates high-converting messaging sequences for each funnel stage</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ AI OBJECTION RESOLVER ══ -->
+<div class="pg" id="pg-copywriting-objection">
+  <div class="ph">
+    <div class="pbc">Marketing <span>›</span> Copywriting <span>›</span> AI Objection Resolver</div>
+    <h1 class="ptitle">🤖 AI Objection Resolver</h1>
+    <p class="pdesc">PRD for an AI-powered system that identifies and resolves customer objections using NEPQ and NLP</p>
+    <div class="pmeta"><span class="tg">PRD</span><span class="tg">NEPQ</span><span class="tg">NLP</span><span class="tg blue">AI Tool</span></div>
+  </div>
+  <div class="info">From the <strong>AI Objection Resolver PRD</strong> chat. Product requirements for building an AI tool that auto-identifies, categorizes, and resolves sales objections.</div>
+
+  <div class="sec" id="s-obj-tax">
+    <div class="sch" onclick="tog('s-obj-tax')"><div class="stitle">Objection Taxonomy</div><div class="sacts"><button class="abt" onclick="cp(event,'s-obj-tax')">📋 Copy</button><button class="abt" onclick="pr(event,'s-obj-tax')">⬇ PDF</button><span class="sci">▾</span></div></div>
+    <div class="sb2">
+      <div class="tw"><table>
+        <thead><tr><th>Category</th><th>Example Objection</th><th>Resolver Strategy</th></tr></thead>
+        <tbody>
+          <tr><td><span class="badge p4">Price</span></td><td>"It's too expensive"</td><td>Value reframe, ROI calculation, payment plan offer</td></tr>
+          <tr><td><span class="badge p2">Trust</span></td><td>"I've never heard of you"</td><td>Social proof injection, authority signals, risk reversal</td></tr>
+          <tr><td><span class="badge p3">Timing</span></td><td>"Not the right time"</td><td>Cost of inaction, urgency creation, future pacing</td></tr>
+          <tr><td><span class="badge p1">Need</span></td><td>"I don't think I need this"</td><td>Problem agitation, symptom mapping, consequence chain</td></tr>
+          <tr><td><span class="badge p5">Authority</span></td><td>"I need to check with my boss"</td><td>Pre-frame for decision, stakeholder co-sell script</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <div class="sec" id="s-obj-road">
+    <div class="sch" onclick="tog('s-obj-road')"><div class="stitle">Build Roadmap</div><div class="sacts"><button class="abt" onclick="cp(event,'s-obj-road')">📋 Copy</button><span class="sci">▾</span></div></div>
+    <div class="sb2">
+      <div class="steps">
+        <div class="step"><div class="stpn">1</div><div class="stpc"><div class="stpt">Phase 1 — Template Library</div><div class="stpd">30 objections × 5 response variants — manual build</div></div></div>
+        <div class="step"><div class="stpn">2</div><div class="stpc"><div class="stpt">Phase 2 — GPT Integration</div><div class="stpd">GPT-4 integration with NEPQ prompting system</div></div></div>
+        <div class="step"><div class="stpn">3</div><div class="stpc"><div class="stpt">Phase 3 — Fine-tuned Model</div><div class="stpd">Fine-tuned on high-converting sales conversation transcripts</div></div></div>
+        <div class="step"><div class="stpn">4</div><div class="stpc"><div class="stpt">Phase 4 — Real-time Overlay</div><div class="stpd">Browser extension for real-time overlay on sales calls</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SIMPLE PAGES (rendered from real MDX) ══ -->
+<div class="pg" id="pg-product-ideas">
+  <div class="ph"><div class="pbc">Business <span>›</span> Product Ideas</div><h1 class="ptitle">💡 Product Ideas</h1><p class="pdesc">6 Genspark chats for product development and business concepts</p><div class="pmeta"><span class="tg blue">6 chats</span></div></div>
+  <div class="info">Collection of product concepts including Authority OS, dancewear, digital products, and other innovative ventures.</div>
+  <p>6 chats covering emerging product ideas, digital product development, and business model exploration. Content extracted from Genspark hub — full detail available in the <a href="https://www.genspark.ai/hub" target="_blank">Genspark Hub</a>.</p>
+</div>
+
+<div class="pg" id="pg-mission-org">
+  <div class="ph"><div class="pbc">Business <span>›</span> Mission Organization</div><h1 class="ptitle">🎯 Mission Organization</h1><p class="pdesc">Strategic initiatives and organizational structure</p></div>
+  <div class="info">Strategic planning, organizational structure, and mission-driven initiatives.</div>
+  <p>1+ chats covering strategic planning and organizational frameworks. Full content in <a href="https://www.genspark.ai/hub" target="_blank">Genspark Hub</a>.</p>
+</div>
+
+<div class="pg" id="pg-insight-profit">
+  <div class="ph"><div class="pbc">Business <span>›</span> Insight Profit</div><h1 class="ptitle">📈 Insight Profit</h1><p class="pdesc">Business analytics and profit optimization</p></div>
+  <div class="info">Analytics, metrics tracking, business intelligence, and profit optimization strategies.</div>
+  <p>Also see the live <a href="https://knowledge-base-v2-dun.vercel.app" target="_blank" style="color:var(--pr);font-weight:600">knowledge-base-v2-dun.vercel.app</a> — the full Insight Profit KB app built on Next.js + Neon PostgreSQL.</p>
+</div>
+
+<div class="pg" id="pg-ftk">
+  <div class="ph"><div class="pbc">Business <span>›</span> FTK</div><h1 class="ptitle">⚡ FTK</h1><p class="pdesc">Special projects and initiatives</p></div>
+  <div class="info">Special projects and cross-functional initiatives. 1+ chats extracted.</div>
+</div>
+
+<!-- Marketing simple pages -->
+<div class="pg" id="pg-marketing">
+  <div class="ph"><div class="pbc">Home <span>›</span> Marketing</div><h1 class="ptitle">📣 Marketing</h1><p class="pdesc">11 Genspark chats across 7 marketing hubs</p></div>
+  <div class="info">11 chats covering copywriting, LinkedIn, ads, email, CMO strategy, and YouTube scripts.</div>
+  <div class="cg">
+    <div class="cc" onclick="nav('copywriting')"><div class="ci">✍️</div><div class="ct">Copywriting</div><div class="cd">Brandon Lucero playbook + AI objection resolver</div></div>
+    <div class="cc" onclick="nav('linkedin')"><div class="ci">💼</div><div class="ct">LinkedIn</div><div class="cd">Strategy and content optimization</div></div>
+    <div class="cc" onclick="nav('ad-ideas')"><div class="ci">📢</div><div class="ct">Ad Ideas</div><div class="cd">Creative ad concepts and campaigns</div></div>
+    <div class="cc" onclick="nav('cmo')"><div class="ci">👔</div><div class="ct">CMO</div><div class="cd">Chief Marketing Officer strategy</div></div>
+    <div class="cc" onclick="nav('emails')"><div class="ci">📧</div><div class="ct">Emails</div><div class="cd">Email campaigns and sequences</div></div>
+    <div class="cc" onclick="nav('youtube')"><div class="ci">🎬</div><div class="ct">YouTube Scripts</div><div class="cd">Video scripts and YouTube content</div></div>
+  </div>
+</div>
+
+<div class="pg" id="pg-copywriting">
+  <div class="ph"><div class="pbc">Marketing <span>›</span> Copywriting</div><h1 class="ptitle">✍️ Copywriting</h1><p class="pdesc">4 Genspark chats covering conversion psychology and AI objection resolution</p><div class="pmeta"><span class="tg blue">4 chats</span></div></div>
+  <div class="info"><strong>4 chats</strong> covering Brandon Lucero's conversion psychology playbook and AI-powered objection resolver tools.</div>
+  <div class="cg">
+    <div class="cc" onclick="nav('copywriting-lucero')"><div class="ci">📖</div><div class="ct">Brandon Lucero Playbook</div><div class="cd">Full conversion psychology framework and persuasion techniques</div></div>
+    <div class="cc" onclick="nav('copywriting-objection')"><div class="ci">🤖</div><div class="ct">AI Objection Resolver</div><div class="cd">PRD for NEPQ-powered objection handling system</div></div>
+  </div>
+</div>
+
+<div class="pg" id="pg-linkedin"><div class="ph"><div class="pbc">Marketing <span>›</span> LinkedIn</div><h1 class="ptitle">💼 LinkedIn</h1><p class="pdesc">LinkedIn strategy and content optimization</p></div><div class="info">LinkedIn profile optimization, content strategy, and professional networking frameworks. 1+ chats extracted.</div></div>
+<div class="pg" id="pg-ad-ideas"><div class="ph"><div class="pbc">Marketing <span>›</span> Ad Ideas</div><h1 class="ptitle">📢 Ad Ideas</h1><p class="pdesc">Creative ad concepts and campaigns</p></div><div class="info">Ad concepts, creative campaign ideas, and advertising strategy. 1+ chats extracted.</div></div>
+<div class="pg" id="pg-cmo"><div class="ph"><div class="pbc">Marketing <span>›</span> CMO</div><h1 class="ptitle">👔 CMO</h1><p class="pdesc">Chief Marketing Officer strategy and planning</p></div><div class="info">Strategic CMO planning, marketing leadership, and high-level marketing strategy. 1+ chats extracted.</div></div>
+<div class="pg" id="pg-emails"><div class="ph"><div class="pbc">Marketing <span>›</span> Emails</div><h1 class="ptitle">📧 Emails</h1><p class="pdesc">Email marketing campaigns and sequences</p></div><div class="info">Email marketing strategy, campaign development, and automated sequences. 1+ chats extracted.</div></div>
+<div class="pg" id="pg-youtube"><div class="ph"><div class="pbc">Marketing <span>›</span> YouTube Scripts</div><h1 class="ptitle">🎬 YouTube Scripts</h1><p class="pdesc">Video script writing and YouTube content</p></div><div class="info">YouTube video scripts, content strategy, and video marketing frameworks. 1+ chats extracted.</div></div>
+
+<!-- Tech -->
+<div class="pg" id="pg-tech">
+  <div class="ph"><div class="pbc">Home <span>›</span> Tech Builds</div><h1 class="ptitle">⚡ Tech Builds</h1><p class="pdesc">5+ Genspark chats across 9 tech project hubs</p></div>
+  <div class="info">5+ chats covering AI agents, software comparison, landing page builders, internal knowledge bases, and code/app builds.</div>
+  <div class="cg">
+    <div class="cc" onclick="nav('ai-agent')"><div class="ci">🤖</div><div class="ct">AI Agent</div><div class="cd">Custom AI agent development (2 projects)</div></div>
+    <div class="cc" onclick="nav('software-comparison')"><div class="ci">⚖️</div><div class="ct">Software Comparison</div><div class="cd">Tool evaluation frameworks</div></div>
+    <div class="cc" onclick="nav('landing-page-builder')"><div class="ci">🏗️</div><div class="ct">Landing Page Builder</div><div class="cd">Landing page tools and strategies</div></div>
+    <div class="cc" onclick="nav('internal-kb')"><div class="ci">📚</div><div class="ct">Internal KB</div><div class="cd">Knowledge base systems</div></div>
+    <div class="cc" onclick="nav('easyveo')"><div class="ci">🎥</div><div class="ct">EasyVeo</div><div class="cd">Video creation platform</div></div>
+    <div class="cc" onclick="nav('code-scripts')"><div class="ci">💻</div><div class="ct">Code &amp; Apps</div><div class="cd">Scripts, active builds, idea-stage apps, agentic workflows</div></div>
+  </div>
+</div>
+
+<div class="pg" id="pg-ai-agent"><div class="ph"><div class="pbc">Tech <span>›</span> AI Agent</div><h1 class="ptitle">🤖 AI Agent Projects</h1><p class="pdesc">Custom AI agent development — 2 projects</p></div><div class="info">Two custom AI agent development projects. 1+ chats extracted per project.</div></div>
+<div class="pg" id="pg-software-comparison"><div class="ph"><div class="pbc">Tech <span>›</span> Software Comparison</div><h1 class="ptitle">⚖️ Software Comparison</h1><p class="pdesc">Tool comparison and evaluation frameworks</p></div><div class="info">Comparative analysis of software tools, platforms, and solutions. 1+ chats extracted.</div></div>
+<div class="pg" id="pg-landing-page-builder"><div class="ph"><div class="pbc">Tech <span>›</span> Landing Page Builder</div><h1 class="ptitle">🏗️ Landing Page Builder</h1><p class="pdesc">Landing page creation tools and strategies</p></div><div class="info">Landing page builders, templates, and conversion optimization strategies. 1+ chats extracted.</div></div>
+<div class="pg" id="pg-internal-kb"><div class="ph"><div class="pbc">Tech <span>›</span> Internal KB</div><h1 class="ptitle">📚 Internal KB</h1><p class="pdesc">Internal knowledge base systems</p></div><div class="info">Internal knowledge base architecture, documentation, and implementation. 1+ chats extracted.</div></div>
+<div class="pg" id="pg-easyveo"><div class="ph"><div class="pbc">Tech <span>›</span> EasyVeo</div><h1 class="ptitle">🎥 EasyVeo</h1><p class="pdesc">Video creation and editing platform</p></div><div class="info">EasyVeo video creation platform, tutorials, and optimization strategies. 1+ chats extracted.</div></div>
+<div class="pg" id="pg-code-scripts"><div class="ph"><div class="pbc">Tech <span>›</span> Code &amp; Scripts</div><h1 class="ptitle">💻 Code &amp; Scripts</h1><p class="pdesc">Code snippets, scripts, and implementations</p></div><div class="info">Reusable code scripts, implementations, technical solutions, app builds (active &amp; idea stage), and agentic workflows. 1+ chats extracted.</div></div>
+
+<!-- Creative -->
+<div class="pg" id="pg-creative">
+  <div class="ph"><div class="pbc">Home <span>›</span> Creative</div><h1 class="ptitle">🎨 Creative</h1><p class="pdesc">7 Genspark chats across 4 creative hubs</p></div>
+  <div class="info">7 chats covering design mastery, brand tone and voice, eBooks, and video storyboarding.</div>
+  <div class="cg">
+    <div class="cc" onclick="nav('design-mastery')"><div class="ci">✏️</div><div class="ct">Design Mastery</div><div class="cd">Professional design systems and principles</div></div>
+    <div class="cc" onclick="nav('tone-voice')"><div class="ci">🗣️</div><div class="ct">Tone &amp; Voice</div><div class="cd">Brand voice, messaging, and communication style</div></div>
+    <div class="cc" onclick="nav('ebook')"><div class="ci">📗</div><div class="ct">eBook</div><div class="cd">eBook writing, design, and production</div></div>
+    <div class="cc" onclick="nav('video-storyboard')"><div class="ci">🎬</div><div class="ct">Video Storyboard</div><div class="cd">Video planning and visual scripting</div></div>
+  </div>
+</div>
+<div class="pg" id="pg-design-mastery"><div class="ph"><div class="pbc">Creative <span>›</span> Design Mastery</div><h1 class="ptitle">✏️ Design Mastery</h1><p class="pdesc">Professional design systems and principles</p></div><div class="info">Design systems, principles, and professional design frameworks. 1+ chats extracted.</div></div>
+<div class="pg" id="pg-tone-voice"><div class="ph"><div class="pbc">Creative <span>›</span> Tone &amp; Voice</div><h1 class="ptitle">🗣️ Tone &amp; Voice</h1><p class="pdesc">Brand voice, messaging, and communication style</p></div><div class="info">Brand voice guidelines, messaging frameworks, and communication style standards. 1+ chats extracted.</div></div>
+<div class="pg" id="pg-ebook"><div class="ph"><div class="pbc">Creative <span>›</span> eBook</div><h1 class="ptitle">📗 eBook</h1><p class="pdesc">eBook writing and production</p></div><div class="info">eBook writing, design, publishing, and production strategies. 1+ chats extracted.</div></div>
+<div class="pg" id="pg-video-storyboard"><div class="ph"><div class="pbc">Creative <span>›</span> Video Storyboard</div><h1 class="ptitle">🎬 Video Storyboard</h1><p class="pdesc">Video planning and storyboarding</p></div><div class="info">Video storyboarding, planning, shot lists, and visual scripting. 1+ chats extracted.</div></div>
+
+<!-- Personal -->
+<div class="pg" id="pg-personal">
+  <div class="ph"><div class="pbc">Home <span>›</span> Personal</div><h1 class="ptitle">🧘 Personal</h1><p class="pdesc">4+ Genspark chats across 9 personal wellness hubs</p></div>
+  <div class="info">4+ chats covering health, wellness, fitness, lifestyle, and personal development.</div>
+  <div class="cg">
+    <div class="cc" onclick="nav('glp1')"><div class="ci">💊</div><div class="ct">GLP-1</div><div class="cd">Medications and metabolic health</div></div>
+    <div class="cc" onclick="nav('fitness')"><div class="ci">🏋️</div><div class="ct">Fitness</div><div class="cd">Exercise, training, and fitness strategies</div></div>
+    <div class="cc" onclick="nav('skin')"><div class="ci">✨</div><div class="ct">Skin</div><div class="cd">Skincare and dermatology</div></div>
+    <div class="cc" onclick="nav('add')"><div class="ci">🧩</div><div class="ct">ADD/ADHD</div><div class="cd">ADHD management and neurodiversity</div></div>
+    <div class="cc" onclick="nav('brain-health')"><div class="ci">🧠</div><div class="ct">Brain Health</div><div class="cd">Cognitive function and optimization</div></div>
+    <div class="cc" onclick="nav('health-career')"><div class="ci">🩺</div><div class="ct">Health Career</div><div class="cd">Health and wellness career paths</div></div>
+    <div class="cc" onclick="nav('travel')"><div class="ci">✈️</div><div class="ct">Travel</div><div class="cd">Travel planning and adventures</div></div>
+    <div class="cc" onclick="nav('cleaning')"><div class="ci">🧹</div><div class="ct">Cleaning</div><div class="cd">Home cleaning and organization</div></div>
+    <div class="cc" onclick="nav('pest')"><div class="ci">🐛</div><div class="ct">Pest Control</div><div class="cd">Pest management and prevention</div></div>
+  </div>
+</div>
+<div class="pg" id="pg-glp1"><div class="ph"><div class="pbc">Personal <span>›</span> GLP-1</div><h1 class="ptitle">💊 GLP-1</h1><p class="pdesc">GLP-1 medications and metabolic health</p></div><div class="info">GLP-1 medications, metabolic health, weight management, and diabetes prevention. 1+ chats extracted.</div></div>
+<div class="pg" id="pg-fitness"><div class="ph"><div class="pbc">Personal <span>›</span> Fitness</div><h1 class="ptitle">🏋️ Fitness</h1><p class="pdesc">Exercise, training, and fitness strategies</p></div><div class="info">Fitness programs, exercise routines, training strategies, and athletic development. 1+ chats extracted.</div></div>
+<div class="pg" id="pg-skin"><div class="ph"><div class="pbc">Personal <span>›</span> Skin</div><h1 class="ptitle">✨ Skin</h1><p class="pdesc">Skincare and dermatology</p></div><div class="info">Skincare routines, dermatology, anti-aging strategies, and skin health. 1+ chats extracted.</div></div>
+<div class="pg" id="pg-add"><div class="ph"><div class="pbc">Personal <span>›</span> ADD/ADHD</div><h1 class="ptitle">🧩 ADD/ADHD</h1><p class="pdesc">ADHD management and neurodiversity</p></div><div class="info">ADHD management, treatment options, productivity strategies, and neurodiversity. 1+ chats extracted.</div></div>
+<div class="pg" id="pg-brain-health"><div class="ph"><div class="pbc">Personal <span>›</span> Brain Health</div><h1 class="ptitle">🧠 Brain Health</h1><p class="pdesc">Cognitive health and brain optimization</p></div><div class="info">Cognitive function, brain optimization, neuroplasticity, and mental performance. 1+ chats extracted.</div></div>
+<div class="pg" id="pg-health-career"><div class="ph"><div class="pbc">Personal <span>›</span> Health Career</div><h1 class="ptitle">🩺 Health Career</h1><p class="pdesc">Health and wellness career exploration</p></div><div class="info">Health and wellness career paths, certifications, and professional development. 1+ chats extracted.</div></div>
+<div class="pg" id="pg-travel"><div class="ph"><div class="pbc">Personal <span>›</span> Travel</div><h1 class="ptitle">✈️ Travel</h1><p class="pdesc">Travel planning and adventures</p></div><div class="info">Travel planning, destinations, itineraries, and adventure experiences. 1+ chats extracted.</div></div>
+<div class="pg" id="pg-cleaning"><div class="ph"><div class="pbc">Personal <span>›</span> Cleaning</div><h1 class="ptitle">🧹 Cleaning</h1><p class="pdesc">Home cleaning and organization</p></div><div class="info">Home cleaning strategies, organization systems, and decluttering frameworks. 1+ chats extracted.</div></div>
+<div class="pg" id="pg-pest"><div class="ph"><div class="pbc">Personal <span>›</span> Pest Control</div><h1 class="ptitle">🐛 Pest Control</h1><p class="pdesc">Pest management and prevention</p></div><div class="info">Pest control strategies, prevention methods, and natural solutions. 1+ chats extracted.</div></div>
+
+<!-- Other -->
+<div class="pg" id="pg-other">
+  <div class="ph"><div class="pbc">Home <span>›</span> Other</div><h1 class="ptitle">📁 Other</h1><p class="pdesc">Projects, completed work, and end-of-life items</p></div>
+  <div class="info">Completed projects, archived initiatives, and miscellaneous project hubs.</div>
+  <div class="cg">
+    <div class="cc" onclick="nav('done')"><div class="ci">✅</div><div class="ct">Done</div><div class="cd">Completed and archived projects</div></div>
+    <div class="cc" onclick="nav('eol')"><div class="ci">🗂️</div><div class="ct">EOL</div><div class="cd">End-of-life and sunset projects</div></div>
+    <div class="cc" onclick="nav('jjm')"><div class="ci">📂</div><div class="ct">JJM</div><div class="cd">Special project documentation</div></div>
+    <div class="cc" onclick="nav('lala')"><div class="ci">📂</div><div class="ct">LALA</div><div class="cd">Special project documentation</div></div>
+    <div class="cc" onclick="nav('toigo')"><div class="ci">📂</div><div class="ct">Toigo</div><div class="cd">Special project documentation</div></div>
+    <div class="cc" onclick="nav('family-office')"><div class="ci">🏠</div><div class="ct">Family Office</div><div class="cd">Family office and wealth management</div></div>
+  </div>
+</div>
+<div class="pg" id="pg-done"><div class="ph"><div class="pbc">Other <span>›</span> Done</div><h1 class="ptitle">✅ Done</h1><p class="pdesc">Completed and archived projects</p></div><div class="info">Completed projects, finished initiatives, and archived work. 1+ chats extracted.</div></div>
+<div class="pg" id="pg-eol"><div class="ph"><div class="pbc">Other <span>›</span> EOL</div><h1 class="ptitle">🗂️ EOL</h1><p class="pdesc">End-of-life and sunset projects</p></div><div class="info">End-of-life projects, sunset initiatives, and deprecated work. 1+ chats extracted.</div></div>
+<div class="pg" id="pg-jjm"><div class="ph"><div class="pbc">Other <span>›</span> JJM</div><h1 class="ptitle">📂 JJM</h1><p class="pdesc">Special project or initiative</p></div><div class="info">Special project documentation and resources. 1+ chats extracted.</div></div>
+<div class="pg" id="pg-lala"><div class="ph"><div class="pbc">Other <span>›</span> LALA</div><h1 class="ptitle">📂 LALA</h1><p class="pdesc">Special project or initiative</p></div><div class="info">Special project documentation and resources. 1+ chats extracted.</div></div>
+<div class="pg" id="pg-toigo"><div class="ph"><div class="pbc">Other <span>›</span> Toigo</div><h1 class="ptitle">📂 Toigo</h1><p class="pdesc">Special project or initiative</p></div><div class="info">Special project documentation and resources. 1+ chats extracted.</div></div>
+<div class="pg" id="pg-family-office"><div class="ph"><div class="pbc">Other <span>›</span> Family Office</div><h1 class="ptitle">🏠 Family Office</h1><p class="pdesc">Family office and wealth management</p></div><div class="info">Family office structures, wealth management, and family business planning. 1+ chats extracted.</div></div>
+
+</div></main>
+</div>
 <div class="toast" id="toast"></div>
 
 <script>
-// ── NAV STRUCTURE ──
-const navStructure = {
-  home: [],
-  business: [
-    { group: 'Overview', items: [{ id: 'business-overview', label: 'Overview', icon: '📋' }] },
-    { group: 'Family Gift Studio', items: [
-      { id: 'fgs-overview', label: 'Overview', icon: '🎁' },
-      { id: 'fgs-brand', label: 'Brand Guidelines', icon: '🎨' },
-      { id: 'fgs-cs', label: 'Customer Service', icon: '🤝' },
-      { id: 'fgs-marketing', label: 'Mentalism Marketing', icon: '🔮' },
-      { id: 'fgs-collection', label: 'Collection Strategy', icon: '📦' },
+const NAV={
+  home:[],
+  business:[
+    {g:'Overview',items:[{id:'business',l:'Overview',i:'📋'}]},
+    {g:'Family Gift Studio',items:[{id:'fgs',l:'FGS Overview',i:'💎'}]},
+    {g:'Second Spring',items:[
+      {id:'second-spring',l:'Overview',i:'🌸'},
+      {id:'second-spring-seo',l:'SEO Strategy',i:'🔍'},
+      {id:'second-spring-content',l:'Content Marketing',i:'✍️'},
+      {id:'second-spring-enterprise',l:'Enterprise Offers',i:'🏢'},
+      {id:'second-spring-brain-fog',l:'Brain Fog Campaign',i:'🧠'},
+      {id:'second-spring-cred',l:'Credentialing',i:'🎓'},
     ]},
-    { group: 'Second Spring', items: [
-      { id: 'second-spring-overview', label: 'Overview', icon: '🌸' },
-      { id: 'second-spring-seo', label: 'SEO Strategy', icon: '🔍' },
-      { id: 'second-spring-content', label: 'Content Marketing', icon: '✍️' },
-      { id: 'brain-fog-campaign', label: 'Brain Fog Campaign', icon: '🧠' },
-      { id: 'second-spring-enterprise', label: 'Enterprise Offers', icon: '🏢' },
-      { id: 'second-spring-cred', label: 'Credentialing', icon: '🎓' },
-    ]},
-    { group: 'Product Ideas', items: [{ id: 'product-ideas', label: 'Overview', icon: '💡' }] },
-    { group: 'Mission Org', items: [{ id: 'mission-org', label: 'Overview', icon: '🎯' }] },
-    { group: 'Insight Profit', items: [{ id: 'insight-profit', label: 'Overview', icon: '📈' }] },
-    { group: 'FTK', items: [{ id: 'ftk', label: 'Overview', icon: '⚡' }] },
-  ],
-  marketing: [
-    { group: 'Overview', items: [{ id: 'marketing-overview', label: 'Overview', icon: '📣' }] },
-    { group: 'Copywriting', items: [
-      { id: 'copywriting-overview', label: 'Overview', icon: '✍️' },
-      { id: 'brandon-lucero-playbook', label: 'Brandon Lucero Playbook', icon: '📖' },
-      { id: 'objection-resolver', label: 'Objection Resolver', icon: '🛡️' },
-    ]},
-    { group: 'LinkedIn', items: [{ id: 'linkedin', label: 'Overview', icon: '💼' }] },
-    { group: 'Ad Ideas', items: [{ id: 'ad-ideas', label: 'Overview', icon: '📢' }] },
-    { group: 'CMO', items: [{ id: 'cmo', label: 'Overview', icon: '👔' }] },
-    { group: 'Emails', items: [{ id: 'emails', label: 'Overview', icon: '📧' }] },
-    { group: 'YouTube Scripts', items: [{ id: 'youtube', label: 'Overview', icon: '🎬' }] },
-  ],
-  tech: [
-    { group: 'Overview', items: [{ id: 'tech-overview', label: 'Overview', icon: '⚡' }] },
-    { group: 'AI Agent', items: [
-      { id: 'ai-agent-1', label: 'AI Agent v1', icon: '🤖' },
-      { id: 'ai-agent-2', label: 'AI Agent v2', icon: '🤖' },
-    ]},
-    { group: 'Software Comparison', items: [{ id: 'software-comparison', label: 'Overview', icon: '⚖️' }] },
-    { group: 'Landing Page Builder', items: [{ id: 'landing-page-builder', label: 'Overview', icon: '🏗️' }] },
-    { group: 'Internal KB', items: [{ id: 'internal-kb', label: 'Overview', icon: '📚' }] },
-    { group: 'EasyVeo', items: [{ id: 'easyveo', label: 'Overview', icon: '🎥' }] },
-    { group: 'Code & Apps', items: [
-      { id: 'code-scripts', label: 'Code Scripts', icon: '💻' },
-      { id: 'app-build-active', label: 'App Build (Active)', icon: '📱' },
-      { id: 'app-build-idea', label: 'App Build (Ideas)', icon: '💡' },
-      { id: 'agentic-workflow', label: 'Agentic Workflow', icon: '🔄' },
+    {g:'More',items:[
+      {id:'product-ideas',l:'Product Ideas',i:'💡'},
+      {id:'mission-org',l:'Mission Org',i:'🎯'},
+      {id:'insight-profit',l:'Insight Profit',i:'📈'},
+      {id:'ftk',l:'FTK',i:'⚡'},
     ]},
   ],
-  creative: [
-    { group: 'Overview', items: [{ id: 'creative-overview', label: 'Overview', icon: '🎨' }] },
-    { group: 'Design Mastery', items: [{ id: 'design-mastery', label: 'Overview', icon: '✏️' }] },
-    { group: 'Tone & Voice', items: [{ id: 'tone-voice', label: 'Overview', icon: '🗣️' }] },
-    { group: 'eBook & Video', items: [
-      { id: 'ebook', label: 'eBook', icon: '📗' },
-      { id: 'video-storyboard', label: 'Video Storyboard', icon: '🎬' },
+  marketing:[
+    {g:'Overview',items:[{id:'marketing',l:'Overview',i:'📣'}]},
+    {g:'Copywriting',items:[
+      {id:'copywriting',l:'Overview',i:'✍️'},
+      {id:'copywriting-lucero',l:'Brandon Lucero Playbook',i:'📖'},
+      {id:'copywriting-objection',l:'AI Objection Resolver',i:'🤖'},
+    ]},
+    {g:'Channels',items:[
+      {id:'linkedin',l:'LinkedIn',i:'💼'},
+      {id:'ad-ideas',l:'Ad Ideas',i:'📢'},
+      {id:'cmo',l:'CMO',i:'👔'},
+      {id:'emails',l:'Emails',i:'📧'},
+      {id:'youtube',l:'YouTube Scripts',i:'🎬'},
     ]},
   ],
-  personal: [
-    { group: 'Overview', items: [{ id: 'personal-overview', label: 'Overview', icon: '🧘' }] },
-    { group: 'Health & Wellness', items: [
-      { id: 'glp1', label: 'GLP-1', icon: '💊' },
-      { id: 'fitness', label: 'Fitness', icon: '🏋️' },
-      { id: 'skin', label: 'Skin', icon: '✨' },
-      { id: 'add', label: 'ADD', icon: '🧩' },
-      { id: 'brain', label: 'Brain', icon: '🧠' },
-      { id: 'health-career', label: 'Health Career', icon: '🩺' },
+  tech:[
+    {g:'Overview',items:[{id:'tech',l:'Overview',i:'⚡'}]},
+    {g:'Projects',items:[
+      {id:'ai-agent',l:'AI Agent',i:'🤖'},
+      {id:'software-comparison',l:'Software Comparison',i:'⚖️'},
+      {id:'landing-page-builder',l:'Landing Page Builder',i:'🏗️'},
+      {id:'internal-kb',l:'Internal KB',i:'📚'},
+      {id:'easyveo',l:'EasyVeo',i:'🎥'},
+      {id:'code-scripts',l:'Code &amp; Scripts',i:'💻'},
     ]},
-    { group: 'Lifestyle', items: [
-      { id: 'travel', label: 'Travel', icon: '✈️' },
-      { id: 'cleaning', label: 'Cleaning', icon: '🧹' },
-      { id: 'pest', label: 'Pest Control', icon: '🐛' },
+  ],
+  creative:[
+    {g:'Overview',items:[{id:'creative',l:'Overview',i:'🎨'}]},
+    {g:'Hubs',items:[
+      {id:'design-mastery',l:'Design Mastery',i:'✏️'},
+      {id:'tone-voice',l:'Tone &amp; Voice',i:'🗣️'},
+      {id:'ebook',l:'eBook',i:'📗'},
+      {id:'video-storyboard',l:'Video Storyboard',i:'🎬'},
+    ]},
+  ],
+  personal:[
+    {g:'Overview',items:[{id:'personal',l:'Overview',i:'🧘'}]},
+    {g:'Health & Wellness',items:[
+      {id:'glp1',l:'GLP-1',i:'💊'},
+      {id:'fitness',l:'Fitness',i:'🏋️'},
+      {id:'skin',l:'Skin',i:'✨'},
+      {id:'add',l:'ADD/ADHD',i:'🧩'},
+      {id:'brain-health',l:'Brain Health',i:'🧠'},
+      {id:'health-career',l:'Health Career',i:'🩺'},
+    ]},
+    {g:'Lifestyle',items:[
+      {id:'travel',l:'Travel',i:'✈️'},
+      {id:'cleaning',l:'Cleaning',i:'🧹'},
+      {id:'pest',l:'Pest Control',i:'🐛'},
+    ]},
+  ],
+  other:[
+    {g:'Overview',items:[{id:'other',l:'Overview',i:'📁'}]},
+    {g:'Projects',items:[
+      {id:'done',l:'Done',i:'✅'},
+      {id:'eol',l:'EOL',i:'🗂️'},
+      {id:'jjm',l:'JJM',i:'📂'},
+      {id:'lala',l:'LALA',i:'📂'},
+      {id:'toigo',l:'Toigo',i:'📂'},
+      {id:'family-office',l:'Family Office',i:'🏠'},
     ]},
   ],
 };
 
-let currentTab = 'home';
-let currentPage = 'home';
+let curTab='home', curPage='home';
 
-function buildSidebar(tab) {
-  const sidebar = document.getElementById('sidebar');
-  const groups = navStructure[tab] || [];
-  sidebar.innerHTML = '';
-
-  groups.forEach((group, gi) => {
-    const div = document.createElement('div');
-    div.className = 'sidebar-group';
-    div.id = 'sg-' + gi + '-' + tab;
-
-    div.innerHTML = `
-      <div class="sidebar-group-header" onclick="toggleGroup('sg-${gi}-${tab}')">
-        ${group.group}
-        <span class="sidebar-group-chevron">▾</span>
-      </div>
-      <div class="sidebar-group-items">
-        ${group.items.map(item => `
-          <a class="sidebar-item ${item.id === currentPage ? 'active' : ''}"
-             onclick="showPage('${item.id}')" href="#">
-            <span class="sidebar-item-icon">${item.icon}</span>
-            ${item.label}
-          </a>
-        `).join('')}
-      </div>
-    `;
-    sidebar.appendChild(div);
+function buildSb(t){
+  const sb=document.getElementById('sb');
+  sb.innerHTML='';
+  (NAV[t]||[]).forEach((g,gi)=>{
+    const d=document.createElement('div');
+    d.className='sbg';
+    d.id='sbg-'+gi+'-'+t;
+    d.innerHTML=`<div class="sbgh" onclick="togSbg('sbg-${gi}-${t}')">${g.g}<span class="sbgc">▾</span></div><div class="sbi-wrap">${
+      g.items.map(it=>`<a class="sbi${it.id===curPage?' on':''}" onclick="nav('${it.id}')" href="#"><span class="sbi-ico">${it.i}</span>${it.l}</a>`).join('')
+    }</div>`;
+    sb.appendChild(d);
   });
 }
 
-function switchTab(tab, btnEl) {
-  currentTab = tab;
-  document.querySelectorAll('.topbar-tab').forEach(b => b.classList.remove('active'));
-  if (btnEl) btnEl.classList.add('active');
-  buildSidebar(tab);
-  if (tab === 'home') showPage('home');
+function tab(t,btn){
+  curTab=t;
+  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('on'));
+  if(btn) btn.classList.add('on');
+  buildSb(t);
+  // Navigate to tab overview
+  const ovMap={business:'business',marketing:'marketing',tech:'tech',creative:'creative',personal:'personal',other:'other',home:'home'};
+  nav(ovMap[t]||t);
 }
 
-function showPage(pageId) {
-  currentPage = pageId;
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-
-  const el = document.getElementById('page-' + pageId);
-  if (el) {
-    el.classList.add('active');
-  } else {
-    // Show placeholder
-    showPlaceholder(pageId);
-    return;
-  }
-
-  // Update sidebar active state
-  document.querySelectorAll('.sidebar-item').forEach(item => {
-    item.classList.toggle('active', item.getAttribute('onclick')?.includes(`'${pageId}'`));
-  });
-
-  window.scrollTo(0, 0);
+function nav(id){
+  curPage=id;
+  document.querySelectorAll('.pg').forEach(p=>p.classList.remove('on'));
+  const el=document.getElementById('pg-'+id);
+  if(el) el.classList.add('on');
+  document.querySelectorAll('.sbi').forEach(i=>i.classList.toggle('on',i.getAttribute('onclick')?.includes(`'${id}'`)));
+  window.scrollTo(0,0);
 }
 
-function showPlaceholder(pageId) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  // Reuse home, but show a "coming soon"
-  const label = pageId.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
-  // Create temp page
-  let temp = document.getElementById('page-placeholder');
-  if (!temp) {
-    temp = document.createElement('div');
-    temp.className = 'page';
-    temp.id = 'page-placeholder';
-    document.querySelector('.content').appendChild(temp);
-  }
-  temp.innerHTML = `
-    <div class="page-header">
-      <div class="page-breadcrumb">Knowledge Base <span>›</span> ${label}</div>
-      <h1 class="page-title">📄 ${label}</h1>
-      <p class="page-description">This page is part of the full knowledge base — 59 pages total.</p>
-    </div>
-    <div class="info-box">
-      This page is available in the full Mintlify-connected knowledge base. The two featured pages are fully rendered above: <a href="#" onclick="showPage('brain-fog-campaign')">Brain Fog Campaign</a> and <a href="#" onclick="showPage('brandon-lucero-playbook')">Brandon Lucero Playbook</a>.
-    </div>
-    <div style="text-align:center;padding:60px 20px;color:var(--text-muted)">
-      <div style="font-size:48px;margin-bottom:16px">🔜</div>
-      <div style="font-size:20px;font-weight:600;margin-bottom:8px">Coming in Full Build</div>
-      <div style="font-size:14px;max-width:400px;margin:0 auto">Connect this to Mintlify or expand the HTML to include all 59 pages</div>
-    </div>
-  `;
-  temp.classList.add('active');
-  document.querySelectorAll('.sidebar-item').forEach(item => {
-    item.classList.toggle('active', item.getAttribute('onclick')?.includes(`'${pageId}'`));
-  });
-  window.scrollTo(0, 0);
+function tog(id){document.getElementById(id).classList.toggle('cl')}
+function togSbg(id){document.getElementById(id).classList.toggle('cl')}
+function tck(el){el.classList.toggle('on')}
+
+function togAcc(hdr){
+  hdr.classList.toggle('open');
+  const next=hdr.nextElementSibling;
+  if(next&&next.classList.contains('acb')) next.classList.toggle('open');
 }
 
-function toggleSection(id) {
-  document.getElementById(id).classList.toggle('collapsed');
+function cp(e,id){
+  e.stopPropagation();
+  const el=document.getElementById(id);
+  navigator.clipboard.writeText(el.innerText.replace(/📋 Copy|⬇ PDF|▾|▸/g,'').trim())
+    .then(()=>toast('Copied to clipboard!'));
+}
+function pr(e,id){
+  e.stopPropagation();
+  const el=document.getElementById(id);
+  const w=window.open('','_blank');
+  w.document.write(`<html><head><title>Export</title><style>body{font-family:sans-serif;padding:40px;color:#111}table{width:100%;border-collapse:collapse;margin:16px 0}th,td{border:1px solid #ddd;padding:8px 12px;text-align:left}th{background:#f5f3ff;font-size:12px;text-transform:uppercase}blockquote{border-left:4px solid #7c3aed;padding:12px 16px;background:#f5f3ff}</style></head><body>${el.innerHTML}</body></html>`);
+  w.document.close(); w.print();
+}
+function toast(m){
+  const t=document.getElementById('toast');
+  t.textContent=m; t.classList.add('on');
+  setTimeout(()=>t.classList.remove('on'),2200);
+}
+function dark(){
+  const h=document.documentElement;
+  const d=h.getAttribute('data-theme')==='dark';
+  h.setAttribute('data-theme',d?'light':'dark');
+  document.getElementById('tt').textContent=d?'🌙':'☀️';
 }
 
-function toggleGroup(id) {
-  document.getElementById(id).classList.toggle('collapsed');
-}
-
-function toggleCheck(el) {
-  el.classList.toggle('checked');
-}
-
-function copySection(event, id) {
-  event.stopPropagation();
-  const sec = document.getElementById(id);
-  const text = sec.innerText.replace(/📋 Copy|⬇ PDF|▾|▸/g, '').trim();
-  navigator.clipboard.writeText(text).then(() => showToast('Copied to clipboard!'));
-}
-
-function printSection(event, id) {
-  event.stopPropagation();
-  const sec = document.getElementById(id);
-  const win = window.open('', '_blank');
-  win.document.write(`
-    <html><head><title>Knowledge Base Export</title>
-    <style>
-      body { font-family: -apple-system, sans-serif; padding: 40px; color: #111; }
-      table { width: 100%; border-collapse: collapse; margin: 16px 0; }
-      th, td { border: 1px solid #ddd; padding: 8px 12px; text-align: left; }
-      th { background: #f5f3ff; font-size: 12px; text-transform: uppercase; }
-      blockquote { border-left: 4px solid #7c3aed; padding: 12px 16px; background: #f5f3ff; }
-      h2 { color: #7c3aed; }
-    </style></head>
-    <body>${sec.innerHTML}</body></html>
-  `);
-  win.document.close();
-  win.print();
-}
-
-function showToast(msg) {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 2500);
-}
-
-function toggleTheme() {
-  const html = document.documentElement;
-  const isDark = html.getAttribute('data-theme') === 'dark';
-  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
-  document.getElementById('themeToggle').textContent = isDark ? '🌙' : '☀️';
-}
-
-// Init
-buildSidebar('home');
+buildSb('home');
 </script>
 </body>
 </html>
