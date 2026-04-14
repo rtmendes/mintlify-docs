@@ -1,7 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Genspark Knowledge Base",
+  "name": "AI Research Lab",
   "colors": {
     "primary": "#7C3AED",
     "light": "#A78BFA",
@@ -168,6 +168,39 @@
             "pages": ["other/done/overview", "other/eol/overview", "other/jjm/overview", "other/lala/overview", "other/toigo/overview", "other/family-office/overview"]
           }
         ]
+      },
+      {
+        "tab": "AI Research Lab",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": ["ai-research/index"]
+          },
+          {
+            "group": "Marketing",
+            "pages": ["ai-research/marketing/overview"]
+          },
+          {
+            "group": "Tech Builds",
+            "pages": ["ai-research/tech-builds/overview"]
+          },
+          {
+            "group": "Business",
+            "pages": ["ai-research/business/overview"]
+          },
+          {
+            "group": "Personal",
+            "pages": ["ai-research/personal/overview"]
+          },
+          {
+            "group": "Ecommerce",
+            "pages": ["ai-research/ecommerce/overview"]
+          },
+          {
+            "group": "Content",
+            "pages": ["ai-research/content/overview"]
+          }
+        ]
       }
     ]
   },
@@ -184,7 +217,7 @@
     ],
     "primary": {
       "type": "button",
-      "label": "Genspark",
+      "label": "Genspark Hub",
       "href": "https://www.genspark.ai/hub"
     }
   }
